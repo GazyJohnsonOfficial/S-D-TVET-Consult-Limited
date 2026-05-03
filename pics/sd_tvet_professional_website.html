@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&D TVET Consult Limited</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #1E9ED5;
+  --primary-dark: #0f7ab0;
+  --primary-light: #e8f6fd;
+  --primary-mid: #a8d9f0;
+  --grey-900: #0f1419;
+  --grey-800: #1a2332;
+  --grey-700: #374151;
+  --grey-600: #4b5563;
+  --grey-500: #6b7280;
+  --grey-400: #9ca3af;
+  --grey-300: #d1d5db;
+  --grey-200: #e5e7eb;
+  --grey-100: #f3f4f6;
+  --grey-50: #f9fafb;
+  --white: #ffffff;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Sora', sans-serif;
+  color: var(--grey-800);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ═════════════════════════════════════════════ NAVIGATION ═════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(30, 158, 213, 0.15);
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  box-shadow: 0 4px 30px rgba(30, 158, 213, 0.06);
+  animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  animation: logoFadeIn 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.nav-logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(30, 158, 213, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-logo-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo-icon:hover::before {
+  opacity: 1;
+}
+
+.nav-logo-text {
+  font-family: 'Crimson Text', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--grey-800);
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+}
+
+.nav-logo-text .highlight {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--grey-600);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.2px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 1px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 16px rgba(30, 158, 213, 0.3);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 8px 32px rgba(30, 158, 213, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav-cta:active {
+  transform: translateY(0);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2.5px;
+  background: var(--grey-800);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ═════════════════════════════════════════════ HERO SECTION ═════════════════════════════════════════════ */
+#home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1628 0%, #0f3a5c 40%, #1E9ED5 100%);
+  display: flex;
+  align-items: center;
+  padding: 120px 6% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(255,255,255,.05) 25%, rgba(255,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255,255,255,.05) 25%, rgba(255,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05) 76%, transparent 77%, transparent);
+  background-size: 60px 60px;
+  animation: gridShift 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes gridShift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(60px); }
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  background: white;
+  filter: blur(40px);
+}
+
+.hero-orb.o1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero-orb.o2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: 10%;
+  animation: float 10s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #a8d9f0;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  backdrop-filter: blur(12px);
+  animation: badgeBounce 0.6s ease-out 0.6s backwards;
+}
+
+@keyframes badgeBounce {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hero-badge i {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background: #5ee7ff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero-title {
+  font-family: 'Crimson Text', serif;
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 600;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+
+.hero-title .highlight {
+  color: #5ee7ff;
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 2vw, 17px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--primary-dark);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: white;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.stat:nth-child(1) { animation-delay: 0.5s; }
+.stat:nth-child(2) { animation-delay: 0.6s; }
+.stat:nth-child(3) { animation-delay: 0.7s; }
+.stat:nth-child(4) { animation-delay: 0.8s; }
+
+.stat-number {
+  font-family: 'Crimson Text', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.hero-right {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 320px;
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s backwards;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 20px 16px;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-card i {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #5ee7ff;
+}
+
+.hero-card .label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.hero-card.span2 {
+  grid-column: span 2;
+}
+
+/* ═════════════════════════════════════════════ COMMON STYLES ═════════════════════════════════════════════ */
+section {
+  padding: 100px 6%;
+  position: relative;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Crimson Text', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--grey-800);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+
+.section-title span {
+  color: var(--primary);
+}
+
+.section-subtitle {
+  color: var(--grey-600);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═════════════════════════════════════════════ ABOUT SECTION ═════════════════════════════════════════════ */
+#about {
+  background: linear-gradient(to bottom, var(--grey-50), var(--white));
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.about-text p {
+  color: var(--grey-600);
+  line-height: 1.9;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.about-text strong {
+  color: var(--grey-800);
+  font-weight: 600;
+}
+
+.about-highlight {
+  background: white;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-style: italic;
+  color: var(--grey-800);
+  font-size: 15px;
+  box-shadow: 0 4px 20px rgba(30, 158, 213, 0.08);
+  border-right: 1px solid var(--grey-200);
+  border-top: 1px solid var(--grey-200);
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.directors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.director-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid transparent;
+}
+
+.director-card:hover {
+  border-color: var(--primary-mid);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(30, 158, 213, 0.15);
+}
+
+.director-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 8px 24px rgba(30, 158, 213, 0.3);
+}
+
+.director-name {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--grey-800);
+}
+
+.director-title {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.director-info {
+  font-size: 13px;
+  color: var(--grey-600);
+  line-height: 1.6;
+}
+
+/* ═════════════════════════════════════════════ SERVICES SECTION ═════════════════════════════════════════════ */
+#services {
+  background: var(--white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+
+.service-card {
+  background: var(--grey-50);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  border-color: var(--primary-mid);
+  background: white;
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(30, 158, 213, 0.12);
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  color: var(--primary);
+  width: 56px;
+  height: 56px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-title {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--grey-800);
+}
+
+.service-description {
+  font-size: 14px;
+  color: var(--grey-600);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-tag {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+}
+
+/* ═════════════════════════════════════════════ SCHOOLS SECTION ═════════════════════════════════════════════ */
+#schools {
+  background: linear-gradient(to bottom, var(--white), var(--grey-50));
+}
+
+.schools-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 48px;
+  margin-top: 60px;
+}
+
+.school-search {
+  border: 2px solid var(--grey-200);
+  border-radius: 10px;
+  padding: 12px 16px 12px 40px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  width: 280px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: var(--white) url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%239ca3af" stroke-width="2"%3E%3Ccircle cx="11" cy="11" r="8"%3E%3C/circle%3E%3Cpath d="m21 21-4.35-4.35"%3E%3C/path%3E%3C/svg%3E') no-repeat 12px center;
+}
+
+.school-search:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.school-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px 20px;
+  border: 1.5px solid var(--grey-200);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.school-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 28px rgba(30, 158, 213, 0.12);
+  transform: translateX(4px);
+}
+
+.school-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.school-info .school-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--grey-800);
+  margin-bottom: 3px;
+}
+
+.school-info .school-location {
+  font-size: 12px;
+  color: var(--grey-600);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gtvp-badge {
+  background: linear-gradient(135deg, var(--accent), #f97316);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.gtvp-section {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: 18px;
+  padding: 48px;
+  margin-top: 60px;
+  color: white;
+}
+
+.gtvp-section h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.gtvp-section > p {
+  opacity: 0.9;
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.gtvp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.gtvp-item {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.gtvp-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ═════════════════════════════════════════════ STATS SECTION ═════════════════════════════════════════════ */
+.stats-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 80px 6%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.stats-section .stat {
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.stats-section .stat:nth-child(1) { animation-delay: 0.1s; }
+.stats-section .stat:nth-child(2) { animation-delay: 0.2s; }
+.stats-section .stat:nth-child(3) { animation-delay: 0.3s; }
+.stats-section .stat:nth-child(4) { animation-delay: 0.4s; }
+
+.stats-section .stat-number {
+  font-family: 'Crimson Text', serif;
+  font-size: 56px;
+  font-weight: 600;
+}
+
+.stats-section .stat-label {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+/* ═════════════════════════════════════════════ CONTACT SECTION ═════════════════════════════════════════════ */
+#contact {
+  background: var(--grey-50);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.contact-info h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--grey-800);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-item h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.contact-item p, .contact-item a {
+  font-size: 14px;
+  color: var(--grey-600);
+  text-decoration: none;
+  line-height: 1.7;
+}
+
+.contact-item a {
+  color: var(--primary);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.contact-item a:hover {
+  color: var(--primary-dark);
+}
+
+.phone-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.phone-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.contact-form {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--grey-800);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey-800);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 2px solid var(--grey-200);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: var(--white);
+  color: var(--grey-800);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+  background: white;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'Sora', sans-serif;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 16px rgba(30, 158, 213, 0.3);
+}
+
+.form-submit:hover {
+  box-shadow: 0 8px 32px rgba(30, 158, 213, 0.4);
+  transform: translateY(-2px);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+}
+
+.map-embed {
+  width: 100%;
+  height: 240px;
+  border-radius: 14px;
+  border: 2px solid var(--primary-mid);
+  margin-top: 28px;
+  overflow: hidden;
+}
+
+/* ═════════════════════════════════════════════ FOOTER ═════════════════════════════════════════════ */
+footer {
+  background: linear-gradient(135deg, var(--grey-900) 0%, #1a2f45 100%);
+  color: var(--grey-400);
+  padding: 80px 6% 0;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-brand h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.footer-brand .highlight {
+  color: var(--primary);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--grey-400);
+  margin-bottom: 24px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.footer-social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--grey-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.footer-social-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.footer-column h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-column a {
+  display: block;
+  font-size: 13px;
+  color: var(--grey-400);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+  line-height: 1.6;
+}
+
+.footer-column a:hover {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 0 0 32px 0;
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding-bottom: 40px;
+  position: relative;
+  z-index: 2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.footer-bottom-left,
+.footer-bottom-center,
+.footer-bottom-right {
+  color: var(--grey-500);
+}
+
+.footer-bottom-center {
+  text-align: center;
+}
+
+.footer-bottom-right {
+  text-align: right;
+}
+
+.footer-bottom a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+footer-background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(30, 158, 213, 0.08), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═════════════════════════════════════════════ RESPONSIVE ═════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .hero-right {
+    display: none;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: 64px;
+    padding: 0 4%;
+  }
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  section {
+    padding: 60px 4%;
+  }
+  .hero-title {
+    font-size: 36px;
+  }
+  .hero-subtitle {
+    font-size: 15px;
+  }
+  .hero-stats {
+    gap: 24px;
+  }
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 60px 4%;
+  }
+  .directors-grid {
+    grid-template-columns: 1fr;
+  }
+  .schools-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .school-search {
+    width: 100%;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .footer-bottom-center,
+  .footer-bottom-right {
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">S&D</div>
+    <div class="nav-logo-text"><span class="highlight">S&D</span> TVET Consult<br>Limited</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#schools">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta"><i class="fas fa-phone"></i> Get Started</button>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home">
+  <div class="hero-background">
+    <div class="hero-grid"></div>
+    <div class="hero-orb o1"></div>
+    <div class="hero-orb o2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-circle"></i>
+      Ghana's Premier TVET Consultancy
+    </div>
+    <h1 class="hero-title">
+      Elevating TVET Standards
+      <span class="highlight">Through Expert Consultancy</span>
+    </h1>
+    <p class="hero-subtitle">
+      Leveraging over 8 years of industry expertise to provide cutting-edge TVET solutions — from CTVET accreditation guidance to CBT facilitator training, across every region of Ghana.
+    </p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn btn-primary">
+        <i class="fas fa-arrow-right"></i> Explore Services
+      </a>
+      <a href="#contact" class="btn btn-outline">
+        <i class="fas fa-envelope"></i> Get Help
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">Years of Expertise</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Facilitators Trained</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">22+</div>
+        <div class="stat-label">Institutions Accredited</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Regions Covered</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <i class="fas fa-file-contract"></i>
+      <div class="label">Policy Development</div>
+    </div>
+    <div class="hero-card">
+      <i class="fas fa-building"></i>
+      <div class="label">CTVET Accreditation</div>
+    </div>
+    <div class="hero-card">
+      <i class="fas fa-chalkboard-user"></i>
+      <div class="label">CBT Training</div>
+    </div>
+    <div class="hero-card">
+      <i class="fas fa-flask-vial"></i>
+      <div class="label">TVET Research</div>
+    </div>
+    <div class="hero-card span2">
+      <i class="fas fa-globe"></i>
+      <div class="label">Serving All Regions of Ghana</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-section">
+  <div class="stat">
+    <div class="stat-number">22+</div>
+    <div class="stat-label">Schools Accredited</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">500+</div>
+    <div class="stat-label">Facilitators Trained</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">6</div>
+    <div class="stat-label">GTVP Institutions Managed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">8+</div>
+    <div class="stat-label">Years of Experience</div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="section-tag">Who We Are</div>
+  <h2 class="section-title">Building Ghana's <span>TVET Future</span></h2>
+  <div class="section-divider"></div>
+  <div class="about-container fade-in">
+    <div class="about-text">
+      <p>S&D TVET Consult Limited is a professional consultancy firm established on <strong>21st March, 2024</strong>, headquartered in Lapaz, Greater Accra. We specialize in Technical and Vocational Education and Training (TVET) advisory services across Ghana.</p>
+      <p>While our company is two years young, our directors bring over <strong>8 years of combined industry expertise</strong> — having worked extensively within the TVET ecosystem, CTVET standards frameworks, and competency-based training methodologies.</p>
+      <div class="about-highlight">
+        "Our mission is to raise the quality and accessibility of technical-vocational education in Ghana — empowering institutions, equipping facilitators, and preparing skilled graduates for the workforce."
+      </div>
+      <p>From policy document development to CTVET accreditation guidance, we provide end-to-end consultancy that transforms TVET institutions into nationally recognized centers of excellence.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Crimson Text',serif; font-size:22px; font-weight:600; margin-bottom:28px; color:var(--grey-800);">Our Directors</h3>
+      <div class="directors-grid">
+        <div class="director-card">
+          <div class="director-avatar">DD</div>
+          <div class="director-name">Derrick Darko</div>
+          <div class="director-title">Director & Co-Founder</div>
+          <div class="director-info">Ghanaian TVET Specialist & Accreditation Expert</div>
+        </div>
+        <div class="director-card">
+          <div class="director-avatar">SA</div>
+          <div class="director-name">Stanley Kwame Adu</div>
+          <div class="director-title">Director & Co-Founder</div>
+          <div class="director-info">Ghanaian CBT Methodology & Policy Specialist</div>
+        </div>
+      </div>
+      <div style="margin-top:28px; background:white; border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,.06); border:2px solid var(--grey-200);">
+        <div style="font-size:13px; font-weight:700; color:var(--primary); margin-bottom:12px; text-transform:uppercase; letter-spacing:.08em; display:flex; align-items:center; gap:8px;">
+          <i class="fas fa-map-marker-alt"></i> Office Location
+        </div>
+        <p style="font-size:14px; color:var(--grey-600); line-height:1.8;">Lapaz, Behind Ecobank<br>Greater Accra Region, Ghana</p>
+        <div class="phone-buttons" style="margin-top:14px;">
+          <a href="tel:0503347934" class="phone-btn"><i class="fas fa-phone"></i> 0503347934</a>
+          <a href="tel:0549647768" class="phone-btn"><i class="fas fa-phone"></i> 0549647768</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services">
+  <div class="section-tag">What We Do</div>
+  <h2 class="section-title">Our <span>Core Services</span></h2>
+  <div class="section-divider"></div>
+  <p class="section-subtitle">Comprehensive TVET consultancy solutions tailored to help institutions meet CTVET standards and thrive in Ghana's technical-vocational landscape.</p>
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+      <div class="service-title">Policy Document Development</div>
+      <div class="service-description">We craft essential institutional documents that meet CTVET requirements and governance expectations.</div>
+      <div class="service-tags">
+        <span class="service-tag">Strategic Plan</span>
+        <span class="service-tag">Health & Safety</span>
+        <span class="service-tag">Governance</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-certificate"></i></div>
+      <div class="service-title">CTVET Accreditation Guidance</div>
+      <div class="service-description">We guide TVET institutions through every step of the CTVET accreditation process — from setup to approval.</div>
+      <div class="service-tags">
+        <span class="service-tag">Standards</span>
+        <span class="service-tag">Compliance</span>
+        <span class="service-tag">Quality</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="service-title">CBT Training & Refresher Courses</div>
+      <div class="service-description">We provide Competency-Based Training workshops and refresher courses for TVET facilitators nationwide.</div>
+      <div class="service-tags">
+        <span class="service-tag">CBT Methodology</span>
+        <span class="service-tag">Workshops</span>
+        <span class="service-tag">500+ Trained</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-headset"></i></div>
+      <div class="service-title">Facilitator Recruitment</div>
+      <div class="service-description">We recruit qualified TVET facilitators for private institutions and prepare them for CTVET interviews.</div>
+      <div class="service-tags">
+        <span class="service-tag">Talent Matching</span>
+        <span class="service-tag">Interview Prep</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="service-title">Research & Project Management</div>
+      <div class="service-description">We conduct TVET sector research and manage national projects including GTVP and GJS-P programs.</div>
+      <div class="service-tags">
+        <span class="service-tag">TVET Research</span>
+        <span class="service-tag">GTVP</span>
+        <span class="service-tag">GJS-P</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-school"></i></div>
+      <div class="service-title">Institutional Management</div>
+      <div class="service-description">We provide full institutional management services — supporting operations, compliance, and administration.</div>
+      <div class="service-tags">
+        <span class="service-tag">Operations</span>
+        <span class="service-tag">Compliance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOLS SECTION -->
+<section id="schools">
+  <div class="section-tag">Our Portfolio</div>
+  <h2 class="section-title">Institutions We've <span>Accredited</span></h2>
+  <div class="section-divider"></div>
+  <div class="schools-header">
+    <p class="section-subtitle" style="margin:0;">22+ TVET institutions across Ghana have achieved CTVET accreditation with our guidance.</p>
+    <input class="school-search" type="text" id="schoolSearch" placeholder="Search schools..." oninput="filterSchools()">
+  </div>
+  <div class="schools-grid" id="schoolsGrid"></div>
+
+  <div class="gtvp-section fade-in">
+    <h3><i class="fas fa-trophy" style="margin-right:10px; color:#fbbf24;"></i> GTVP Managed Institutions</h3>
+    <p>Institutions where we have successfully managed the Ghana TVET Voucher Programme (GTVP)</p>
+    <div class="gtvp-grid">
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> MBA Mode Institute, Adenta</div>
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> MECATI (Mamfe & Kumasi)</div>
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> Geagle Training Institute, Nungua</div>
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> Glory Divine Skills Training Center</div>
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> Stunning Looks Technical Institute, Lashibi</div>
+      <div class="gtvp-item"><i class="fas fa-check-circle" style="margin-right:8px; color:#5ee7ff;"></i> Wenchiman TVET Academy, Wenchi</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <h2 class="section-title">Start Your <span>Accreditation Journey</span></h2>
+  <div class="section-divider"></div>
+  <div class="contact-container fade-in">
+    <div class="contact-info">
+      <h3>We're Here to Help Your Institution Succeed</h3>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <h4>Office Location</h4>
+          <p>Lapaz, Behind Ecobank<br>Greater Accra Region, Ghana</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <h4>Phone Numbers</h4>
+          <div class="phone-buttons">
+            <a href="tel:0503347934" class="phone-btn"><i class="fas fa-phone"></i> 0503347934</a>
+            <a href="tel:0549647768" class="phone-btn"><i class="fas fa-phone"></i> 0549647768</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:info@sdtvetconsult.com">info@sdtvetconsult.com</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+        <div>
+          <h4>Follow Us</h4>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="footer-social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/0503347934" class="footer-social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5!2d-0.2327!3d5.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2d34a55%3A0xcf4a9c9a4c6d14be!2sEcobank%20Lapaz!5e0!3m2!1sen!2sgh!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3><i class="fas fa-envelope-open" style="margin-right:10px; color:var(--primary);"></i> Accreditation Inquiry</h3>
+      <form>
+        <div class="form-group">
+          <label>Institution Name <span style="color:var(--danger);">*</span></label>
+          <input type="text" placeholder="e.g. ABC Vocational Institute" required>
+        </div>
+        <div class="form-group">
+          <label>Contact Person <span style="color:var(--danger);">*</span></label>
+          <input type="text" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span style="color:var(--danger);">*</span></label>
+          <input type="tel" placeholder="e.g. 0244000000" required>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="">-- Select a service --</option>
+            <option>CTVET Accreditation Guidance</option>
+            <option>Policy Document Development</option>
+            <option>CBT Training & Refresher Courses</option>
+            <option>Facilitator Recruitment</option>
+            <option>GTVP / Project Management</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your institution and what you need..."></textarea>
+        </div>
+        <button type="submit" class="form-submit"><i class="fas fa-paper-plane" style="margin-right:8px;"></i> Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3><span class="highlight">S&D</span> TVET Consult</h3>
+      <p>Leveraging over 8 years of industry expertise to elevate TVET standards across Ghana. Established March 21, 2024.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="footer-social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/0503347934" class="footer-social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>Services</h4>
+      <a href="#services">Policy Development</a>
+      <a href="#services">CTVET Accreditation</a>
+      <a href="#services">CBT Training</a>
+      <a href="#services">Facilitator Recruitment</a>
+      <a href="#services">Research & Projects</a>
+    </div>
+    <div class="footer-column">
+      <h4>Company</h4>
+      <a href="#about">About Us</a>
+      <a href="#schools">Portfolio</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <a href="tel:0503347934"><i class="fas fa-phone" style="margin-right:8px; color:var(--primary);"></i> 0503347934</a>
+      <a href="tel:0549647768"><i class="fas fa-phone" style="margin-right:8px; color:var(--primary);"></i> 0549647768</a>
+      <a href="mailto:info@sdtvetconsult.com"><i class="fas fa-envelope" style="margin-right:8px; color:var(--primary);"></i> Email Us</a>
+      <a href="#"><i class="fas fa-map-marker-alt" style="margin-right:8px; color:var(--primary);"></i> Lapaz, Accra</a>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      © 2024–2026 S&D TVET Consult Limited.<br>All rights reserved. Established March 21, 2024.
+    </div>
+    <div class="footer-bottom-center">
+      <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a> • <a href="#">Cookie Policy</a>
+    </div>
+    <div class="footer-bottom-right">
+      Made with <i class="fas fa-heart" style="color:var(--danger);"></i> for Ghana's TVET Community
+    </div>
+  </div>
+</footer>
+
+<script>
+const schools = [
+  { name: "MECATI", loc: "Mamfe Akuapem, Kumasi & Amanfrom", gtvp: true },
+  { name: "Geagle Training Institute", loc: "Nungua, Greater Accra", gtvp: true },
+  { name: "CareerCraft Vocational Institute", loc: "Amasaman" },
+  { name: "Glory Divine Skills Training Center", loc: "Gomoa Afransi, Central Region", gtvp: true },
+  { name: "Perphet Plus Beauty College", loc: "Michelle Camp, Accra" },
+  { name: "Adonai Technical Institute", loc: "Ashanti Bekwai" },
+  { name: "ROPA Fashion Institute", loc: "Techiman, Bono East Region" },
+  { name: "Big Agyiri Fashion Institute", loc: "Techiman, Bono East Region" },
+  { name: "Electronic Security Training Institute", loc: "Awudome, Accra" },
+  { name: "New World Grooming Center", loc: "Dzorwulu, Accra" },
+  { name: "Jajil Fashion", loc: "Kotei, Kumasi" },
+  { name: "2nd Image", loc: "Accra & Kumasi" },
+  { name: "Hadhakai Charitable & Contractors Foundation", loc: "Daboya, Savannah Region" },
+  { name: "Academic City University", loc: "Haatso-Bohy3, Accra" },
+  { name: "LordBoam Skills Training Center", loc: "Yeji, Bono East Region" },
+  { name: "Touch Skills Training Center", loc: "Kumasi" },
+  { name: "Pentecost Skills Development Center", loc: "Baatsona, Spintex" },
+  { name: "NADAA Training Institute", loc: "Takoradi" },
+  { name: "New Century Training Institute", loc: "Dansoman" },
+  { name: "MBA Mode Institute", loc: "Adenta, Accra", gtvp: true },
+  { name: "St. Theresa's Training Institute", loc: "Ayinase, Western Region" },
+  { name: "Salve Regina School", loc: "Abuakwa-Canaan, Kumasi" },
+];
+
+function renderSchools(list) {
+  const grid = document.getElementById('schoolsGrid');
+  grid.innerHTML = list.map((s, i) => `
+    <div class="school-card">
+      <div class="school-number">${String(i+1).padStart(2,'0')}</div>
+      <div class="school-info">
+        <div class="school-name">
+          ${s.name}${s.gtvp ? '<span class="gtvp-badge">GTVP</span>' : ''}
+        </div>
+        <div class="school-location">
+          <i class="fas fa-map-pin" style="font-size:10px;"></i> ${s.loc}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+renderSchools(schools);
+
+function filterSchools() {
+  const q = document.getElementById('schoolSearch').value.toLowerCase();
+  renderSchools(schools.filter(s => s.name.toLowerCase().includes(q) || s.loc.toLowerCase().includes(q)));
+}
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
