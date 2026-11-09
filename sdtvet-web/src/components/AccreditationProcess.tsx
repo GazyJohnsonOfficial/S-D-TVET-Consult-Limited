@@ -54,9 +54,9 @@ export default function AccreditationProcess() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
           <div>
-            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
-              Proven 5-Stage Framework
-            </span>
+            <div className="text-xs sm:text-sm font-bold text-emerald-700 uppercase tracking-wider mb-2">
+              Implementation Timeline &bull; Proven 5-Stage Framework
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               The Roadmap to CTVET Accreditation
             </h2>
@@ -83,9 +83,9 @@ export default function AccreditationProcess() {
                   </div>
                 </div>
 
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#00509d] block mb-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#00509d] mb-2">
                   {step.timeline}
-                </span>
+                </div>
 
                 <h3 className="text-lg font-bold text-slate-900 mb-2 leading-snug">
                   {step.title}
@@ -98,8 +98,8 @@ export default function AccreditationProcess() {
                 {/* CHECKPOINTS */}
                 <div className="pt-3 border-t border-slate-200/60 space-y-1.5">
                   {step.checkpoints.map((cp, cIdx) => (
-                    <div key={cIdx} className="flex items-center space-x-2 text-xs text-slate-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                    <div key={cIdx} className="flex items-center space-x-1.5 text-xs text-slate-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
                       <span>{cp}</span>
                     </div>
                   ))}

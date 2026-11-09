@@ -76,9 +76,9 @@ export default function ServicesSection() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
           <div>
-            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
-              Full-Spectrum TVET Solutions
-            </span>
+            <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
+              Our Capabilities &bull; Full-Spectrum TVET Solutions
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Comprehensive TVET Solutions
             </h2>
@@ -123,7 +123,7 @@ export default function ServicesSection() {
                     </div>
                     {service.featured ? (
                       <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                        Core Flagship
+                        Priority Service
                       </span>
                     ) : (
                       <span className="text-xs font-mono font-bold text-slate-400">
@@ -173,9 +173,9 @@ export default function ServicesSection() {
           <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="space-y-3 text-center md:text-left relative z-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
-              No-Obligation Preliminary Diagnostic
-            </span>
+            <div className="text-xs font-bold uppercase tracking-wider text-amber-300">
+              No Obligation Diagnostic
+            </div>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
               Unsure which TVET package fits your institution?
             </h3>

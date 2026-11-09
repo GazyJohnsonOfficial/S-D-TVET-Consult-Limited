@@ -32,9 +32,9 @@ export default function Hero() {
           {/* LEFT: STRATEGIC HEADLINE & PROPOSITION */}
           <div className="lg:col-span-7 space-y-7 text-left">
             
-            {/* CLEAN CATEGORY KICKER (NO TACKY PILL TAGS OR GREEN DOTS) */}
-            <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#00509d]">
-              Ghana TVET &amp; CTVET Accreditation Specialists
+            {/* CLEAN CORPORATE EYEBROW */}
+            <div className="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#00509d]">
+              Commission for TVET (CTVET) Accreditation Guidance &bull; Ghana
             </div>
 
             {/* COMMANDING MAIN HEADLINE */}
@@ -53,7 +53,7 @@ export default function Hero() {
             {/* TRUST BULLETS IN COMPACT BADGE CHIPS */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
               <div className="flex items-center space-x-2.5 p-3 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <div className="text-xs sm:text-sm font-bold text-slate-800">
@@ -100,7 +100,7 @@ export default function Hero() {
 
             {/* DIRECT HOTLINE */}
             <div className="pt-2 flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
-              <span>Direct Consultation Hotlines:</span>
+              <span className="font-medium text-slate-600">Direct Consultation Hotlines:</span>
               <a href="tel:0503347934" className="font-bold text-[#00509d] hover:underline">
                 050 334 7934
               </a>
@@ -131,9 +131,10 @@ export default function Hero() {
                 
                 {/* BOTTOM CAPTION */}
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">
-                    Real Field Impact
-                  </span>
+                  <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-amber-500 text-slate-950 text-xs font-bold uppercase tracking-wider mb-2">
+                    <Star className="w-3.5 h-3.5 fill-slate-950" />
+                    <span>Real Field Impact</span>
+                  </div>
                   <h3 className="text-lg sm:text-xl font-bold text-white drop-shadow">
                     CTVET Facilitator Workshop &amp; Standards Alignment
                   </h3>

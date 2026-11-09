@@ -11,9 +11,9 @@ export default function BlogSection() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-100">
           <div>
-            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
-              Insights &amp; TVET Governance
-            </span>
+            <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
+              Industry Knowledge &bull; Insights &amp; TVET Governance
+            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Latest Industry Articles
             </h2>
