@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustMetrics from "@/components/TrustMetrics";
+import PartnerMarquee from "@/components/PartnerMarquee";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import AccreditationProcess from "@/components/AccreditationProcess";
@@ -20,6 +21,9 @@ export default function Home() {
       <main className="flex-grow w-full">
         <Hero />
         <TrustMetrics />
+        <div className="mt-14">
+          <PartnerMarquee />
+        </div>
         <AboutSection />
         <ServicesSection />
         <AccreditationProcess />

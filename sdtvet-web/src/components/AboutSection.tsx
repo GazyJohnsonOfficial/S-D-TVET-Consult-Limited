@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { Check, Target, Compass, Sparkles, Shield, Award, Users } from "lucide-react";
+import { Check, Target, Compass, Sparkles, Shield, Award, Users2, Building } from "lucide-react";
 import { LEADERSHIP } from "@/data/site-data";
 
 export default function AboutSection() {
@@ -9,88 +11,86 @@ export default function AboutSection() {
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-16 pb-6 border-b border-slate-100">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4 border border-blue-200/60">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span>Built on 8+ Years of Practical TVET Mastery</span>
+        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
+          <div>
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4 border border-blue-100">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Built on 8+ Years of Hands-on Authority</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+              About S&amp;D TVET Consult Limited
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
-            About S&amp;D TVET Consult Limited
-          </h2>
-          <p className="mt-4 text-base sm:text-lg lg:text-xl text-slate-600 max-w-4xl leading-relaxed">
-            Officially established on March 21, 2024, S&amp;D TVET Consult Limited brings together a founding team with over 8 years of deep, hands-on operational leadership across Ghana&apos;s technical and vocational education sector.
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            Officially established on March 21, 2024, S&amp;D TVET Consult Limited unites Ghana&apos;s leading practitioners in TVET policy, institutional accreditation, and national voucher initiatives.
           </p>
         </div>
 
-        {/* 2-COLUMN STORY & MISSION */}
+        {/* 2-COLUMN STORY & CREDENTIALS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
           
           {/* LEFT: STORY & PILLARS */}
           <div className="lg:col-span-7 space-y-7">
             <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed">
               <p>
-                We have accredited <strong>22+ institutions</strong>, trained over <strong>500 facilitators</strong>, and successfully managed major national interventions including the Ghana TVET Voucher Programme (GTVP) and Ghana Jobs and Skills Project (GJS-P).
+                Our founders and consultant network bring over <strong>8 years of frontline TVET leadership</strong>. Having successfully guided <strong>22+ institutions</strong> across Greater Accra, Ashanti, Bono East, Central, Savannah, and Western regions to full accreditation, our track record is unmatched.
               </p>
               <p>
-                Our core philosophy blends rigorous regulatory knowledge of Ghana&apos;s Commission for TVET (CTVET) with practical on-the-ground support. We do not simply advise from afar; we embed alongside your administrative and pedagogical teams to guarantee institutional readiness and compliance.
+                We do not deliver theoretical slide decks. Our team physically visits your premises, audits your workshop machinery and safety features against CTVET guidelines, standardizes your governance documents, and conducts simulated panel interviews so your facilitators face the Commission with 100% confidence.
               </p>
             </div>
 
             {/* MISSION & VISION CARDS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 to-white border border-blue-100/80 shadow-sm card-hover-lift">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00509d] to-[#00296b] text-white flex items-center justify-center mb-4 shadow-md shadow-blue-900/15">
+              <div className="p-7 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#00509d] text-white flex items-center justify-center mb-4 shadow-md">
                   <Target className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1.5 font-heading">Our Mission</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Our Mission</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  To position S&amp;D TVET Consult as the preeminent authority for CTVET accreditation, CBT curriculum alignment, and institutional governance across Ghana.
+                  To serve as Ghana&apos;s premier authority for CTVET accreditation, competency-based curricula alignment, and TVET school operational excellence.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/80 to-white border border-amber-200/60 shadow-sm card-hover-lift">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center mb-4 shadow-md shadow-amber-900/15">
+              <div className="p-7 rounded-3xl bg-amber-50/50 border border-amber-200/70 shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-md">
                   <Compass className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1.5 font-heading">Our Approach</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Our Method</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Collaborative, transparent, and results-focused. We support proprietors, instructors, NGOs, and corporate partners until full certification is achieved.
+                  Practical, transparent, and results-guaranteed. We work directly alongside proprietors, principals, and teachers until formal certification is granted.
                 </p>
               </div>
             </div>
 
-            {/* KEY PRINCIPLES */}
+            {/* WHY INSTITUTIONS CHOOSE S&D */}
             <div className="pt-2">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-800 mb-4 flex items-center space-x-2">
-                <Shield className="w-4 h-4 text-[#00509d]" />
-                <span>Why Institutions Choose S&amp;D TVET Consult:</span>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">
+                Core Advantages of S&amp;D TVET Consult:
               </h4>
-              <ul className="space-y-3.5 text-sm sm:text-base text-slate-600">
-                <li className="flex items-start space-x-3.5 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4" />
-                  </span>
-                  <span><strong>100% CTVET Mandate Alignment</strong> — We prepare every document and audit directly according to the regulator&apos;s exact criteria.</span>
-                </li>
-                <li className="flex items-start space-x-3.5 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4" />
-                  </span>
-                  <span><strong>Complete Documentation Pack</strong> — Custom policies, student handbooks, governance charts, and health &amp; safety manuals.</span>
-                </li>
-                <li className="flex items-start space-x-3.5 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4" />
-                  </span>
-                  <span><strong>Mock Panel Coaching</strong> — Simulation sessions that prepare your instructors and leadership to answer review board questions with poise.</span>
-                </li>
-              </ul>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {[
+                  "100% CTVET checklist and audit compliance",
+                  "Turnkey governance, safety, & academic policies",
+                  "Facilitator interview coaching & mock drills",
+                  "Curriculum alignment with National CBT unit standards",
+                  "GTVP & GJS-P voucher management expertise",
+                  "Continuous post-accreditation support & renewals"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
+                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3.5 h-3.5" />
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* RIGHT: FEATURED IMAGE / CREDENTIAL SPOTLIGHT */}
-          <div className="lg:col-span-5 w-full">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+          {/* RIGHT: PHOTO SPOTLIGHT & REGULATORY SEAL */}
+          <div className="lg:col-span-5 w-full space-y-6">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
               <div className="relative aspect-[4/3] bg-slate-100">
                 <Image
                   src="/pics/4.jpeg"
@@ -100,17 +100,32 @@ export default function AboutSection() {
                   sizes="(max-width: 1024px) 100vw, 700px"
                 />
               </div>
-              <div className="p-8 sm:p-9 bg-gradient-to-br from-slate-950 via-slate-900 to-[#001d4a] text-white">
-                <div className="inline-flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full border border-amber-400/20">
-                  <Award className="w-3.5 h-3.5" />
+              <div className="p-8 bg-slate-900 text-white">
+                <div className="flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                  <Shield className="w-4 h-4" />
                   <span>Accreditation Guarantee</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mt-3 text-white font-heading">
-                  Bridging Regulatory Standards &amp; Practical Execution
+                <h3 className="text-xl font-bold mt-2 text-white">
+                  Bridging Regulatory Mandates &amp; Practical Execution
                 </h3>
-                <p className="text-sm text-slate-300 mt-3 leading-relaxed">
-                  Our directors maintain close professional collaboration with industry stakeholders and regulatory bodies, ensuring TVET institutes receive accurate, updated requirements without costly trial-and-error delays.
+                <p className="text-sm text-slate-300 mt-2.5 leading-relaxed">
+                  Our directors maintain close professional dialogue with Ghana&apos;s educational authorities, ensuring your TVET establishment receives clear, up-to-date guidance without costly false starts.
                 </p>
+              </div>
+            </div>
+
+            {/* CORPORATE REGISTRATION SEAL CARD */}
+            <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-900 to-[#00509d] text-white flex items-center space-x-4 shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center flex-shrink-0 border border-white/20">
+                <Building className="w-6 h-6 text-amber-300" />
+              </div>
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-amber-300">
+                  Officially Registered Enterprise
+                </div>
+                <div className="text-sm font-semibold text-white mt-0.5">
+                  Incorporated March 21, 2024 • Regulated under Act 992
+                </div>
               </div>
             </div>
           </div>
@@ -119,16 +134,18 @@ export default function AboutSection() {
 
         {/* LEADERSHIP SECTION */}
         <div className="border-t border-slate-200/80 pt-16 w-full">
-          <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-2">
-              <Users className="w-3.5 h-3.5" />
-              <span>Executive Governance</span>
+          <div className="w-full mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#00509d] mb-2">
+                <Users2 className="w-4 h-4" />
+                <span>Executive Leadership</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
+                Meet the Directors
+              </h3>
             </div>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-heading">
-              Meet Our Leadership
-            </h3>
-            <p className="text-base text-slate-600 mt-2 max-w-2xl">
-              Guided by dedicated professionals who live and breathe Ghana&apos;s TVET ecosystem.
+            <p className="text-sm text-slate-500 max-w-md">
+              Experienced TVET leaders actively guiding institutions, mentoring facilitators, and driving national educational excellence.
             </p>
           </div>
 
@@ -136,9 +153,9 @@ export default function AboutSection() {
             {LEADERSHIP.map((leader) => (
               <div
                 key={leader.name}
-                className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start space-y-5 sm:space-y-0 sm:space-x-6 card-shine"
+                className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start space-y-5 sm:space-y-0 sm:space-x-7 card-hover-pro"
               >
-                <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-lg border-2 border-slate-100 flex-shrink-0 bg-slate-100 ring-4 ring-blue-50">
+                <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden shadow-lg border-4 border-slate-100 flex-shrink-0 bg-slate-200 ring-1 ring-slate-200">
                   <Image
                     src={leader.image}
                     alt={leader.name}
@@ -147,17 +164,18 @@ export default function AboutSection() {
                     sizes="160px"
                   />
                 </div>
-                <div className="text-center sm:text-left">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-blue-50 text-[10px] font-bold uppercase tracking-wider text-[#00509d] mb-1.5 border border-blue-200/60">
-                    Co-Founder &amp; Director
-                  </span>
-                  <h4 className="text-xl sm:text-2xl font-bold text-slate-900 font-heading">{leader.name}</h4>
-                  <div className="text-xs font-bold text-amber-600 tracking-wide uppercase mt-1 mb-3">
+                <div className="text-center sm:text-left flex-grow">
+                  <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-[#00509d] text-xs font-bold uppercase tracking-wider mb-2">
                     {leader.role}
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <h4 className="text-2xl font-bold text-slate-900">{leader.name}</h4>
+                  <p className="text-sm text-slate-600 leading-relaxed mt-2.5">
                     {leader.bio}
                   </p>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center sm:justify-start space-x-2 text-xs font-semibold text-emerald-700">
+                    <Check className="w-4 h-4" />
+                    <span>Direct Senior Consultation Available</span>
+                  </div>
                 </div>
               </div>
             ))}

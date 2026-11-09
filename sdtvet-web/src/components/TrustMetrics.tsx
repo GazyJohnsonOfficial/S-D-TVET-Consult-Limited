@@ -1,52 +1,78 @@
+"use client";
+
 import React from "react";
-import { Building2, Users, CalendarCheck, Award, TrendingUp } from "lucide-react";
+import { Building2, Users, CalendarCheck, Award, ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
 
 export default function TrustMetrics() {
-  const iconGradients = [
-    "from-blue-600 to-[#00509d]",
-    "from-indigo-600 to-blue-700",
-    "from-amber-500 to-amber-600",
-    "from-emerald-500 to-emerald-700",
-  ];
-
-  const icons = [
-    <Building2 key="b" className="w-6 h-6 text-white" />,
-    <Users key="u" className="w-6 h-6 text-white" />,
-    <CalendarCheck key="c" className="w-6 h-6 text-white" />,
-    <Award key="a" className="w-6 h-6 text-white" />,
+  const metrics = [
+    {
+      value: "22+",
+      label: "Accredited Institutions",
+      detail: "Achieved full CTVET certification across Ghana",
+      icon: <Building2 className="w-6 h-6 text-[#00509d]" />,
+      badge: "100% Pass Rate"
+    },
+    {
+      value: "500+",
+      label: "Trained Facilitators",
+      detail: "Instructors coached in Competency-Based Training",
+      icon: <Users className="w-6 h-6 text-[#00509d]" />,
+      badge: "Certified Instructors"
+    },
+    {
+      value: "8+",
+      label: "Years of Sector Experience",
+      detail: "Specialized policy, audit, & institutional setup",
+      icon: <CalendarCheck className="w-6 h-6 text-[#00509d]" />,
+      badge: "Founding Authority"
+    },
+    {
+      value: "6",
+      label: "GTVP Flagship Projects",
+      detail: "Managed Ghana TVET Voucher training grants",
+      icon: <Award className="w-6 h-6 text-[#00509d]" />,
+      badge: "National Impact"
+    }
   ];
 
   return (
-    <section className="relative -mt-12 z-20 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
-      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-200/90 p-8 sm:p-10 relative overflow-hidden">
-        {/* TOP ACCENT LINE */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-amber-400 to-[#00296b]" />
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-          {SITE_CONFIG.metrics.map((metric, index) => (
+    <section className="relative -mt-10 z-20 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/90 p-6 sm:p-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+          {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`flex flex-col items-center text-center p-3 sm:p-4 group ${
-                index > 0 ? "pt-6 sm:pt-4" : ""
+              className={`flex flex-col justify-between p-4 ${
+                index > 0 ? "pt-6 sm:pt-4 sm:pl-8" : ""
               }`}
             >
-              <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${iconGradients[index % iconGradients.length]} flex items-center justify-center mb-4 shadow-lg shadow-blue-900/10 transition-transform duration-200 group-hover:scale-110`}
-              >
-                {icons[index % icons.length]}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center">
+                    {metric.icon}
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
+                    {metric.badge}
+                  </span>
+                </div>
+
+                <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
+                  {metric.value}
+                </div>
+
+                <div className="text-base font-bold text-slate-900 mt-2">
+                  {metric.label}
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                  {metric.detail}
+                </p>
               </div>
 
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-heading group-hover:text-[#00509d] transition-colors">
-                {metric.value}
-              </div>
-
-              <div className="text-sm sm:text-base font-bold text-slate-800 mt-1.5">
-                {metric.label}
-              </div>
-
-              <div className="text-xs text-slate-500 mt-1 max-w-[200px] leading-relaxed">
-                {metric.description}
+              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#00509d]">
+                <span>Verified Metric</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-slate-400" />
               </div>
             </div>
           ))}
