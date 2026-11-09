@@ -3,368 +3,229 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  ShieldCheck,
-  ArrowUp,
-  ArrowRight,
-  Send,
-  CheckCircle2,
-  Clock,
-  Sparkles,
-  ExternalLink,
-  MessageCircle,
-  Building,
-  Award,
-  Globe2,
-} from "lucide-react";
+import { Zap, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2026);
-  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newsletterEmail) return;
-    setSubscribed(true);
-    setTimeout(() => {
-      setNewsletterEmail("");
-    }, 2000);
+    if (email && email.includes("@")) {
+      setSubscribed(true);
+      setEmail("");
+    }
   };
 
   return (
-    <footer className="relative w-full bg-[#030712] text-slate-300 border-t border-slate-800/80 overflow-hidden dark-footer-grid pt-16 pb-12 select-none">
+    <footer className="w-full bg-[#f8f9fb] border-t border-slate-200/70 pt-20 sm:pt-28 pb-12 overflow-hidden">
       
-      {/* =========================================================================
-          AMBIENT ANIMATED LIGHT ORBS & PARTICLES
-      ========================================================================= */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none animate-float-slow -z-0" />
-      <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none animate-float-delayed -z-0" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-[500px] bg-gradient-to-b from-blue-900/5 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
-
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
+      {/* 1. PRE-FOOTER CTA BANNER (MATCHING REFERENCE IMAGE) */}
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 mb-20 sm:mb-28 text-center">
         
-        {/* =========================================================================
-            TOP INTERACTIVE CARD: REGULATORY ALERT SUBSCRIPTION
-        ========================================================================= */}
-        <div className="mb-16 p-8 sm:p-10 lg:p-12 rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-blue-950/80 border border-white/10 shadow-2xl backdrop-blur-xl relative overflow-hidden group">
-          
-          {/* Subtle glowing animated top border */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-blue-500 opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* TEXT CALLOUT */}
-            <div className="lg:col-span-7 space-y-3">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/20 text-xs font-bold text-amber-400 uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Ghana TVET Regulatory Dispatch</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Stay Ahead of CTVET Compliance &amp; Policy Deadlines
-              </h3>
-              <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-                Receive quarterly accreditation checklists, CBT pedagogical guides, and national GTVP training grant alerts directly in your inbox.
-              </p>
-            </div>
+        {/* HEADLINE WITH DISTINCTIVE BLACK PILL HIGHLIGHT */}
+        <h2 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-bold text-slate-900 tracking-tight leading-[1.18] max-w-4xl mx-auto">
+          Ready to take all the{" "}
+          <span className="inline-block bg-slate-950 text-white px-3.5 sm:px-4 py-0.5 sm:py-1 rounded-xl sm:rounded-2xl mx-1 shadow-sm font-semibold">
+            stress
+          </span>{" "}
+          out of TVET accreditation?
+        </h2>
 
-            {/* INTERACTIVE FORM */}
-            <div className="lg:col-span-5 w-full">
+        {/* SUBTITLE */}
+        <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Complete documentation review, facility inspection prep, and mock panel drills.
+          100% compliance alignment with Ghana&apos;s CTVET guidelines and zero guesswork.
+        </p>
+
+        {/* DUAL PILL ACTION BUTTONS */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <a
+            href="#contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-sm font-semibold shadow-sm transition-all duration-200 group"
+          >
+            <Zap className="w-4 h-4 fill-white text-slate-950" />
+            <span>Book Free Diagnostic Audit</span>
+          </a>
+
+          <a
+            href="#services"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-200/90 text-sm font-semibold shadow-xs transition-all duration-200"
+          >
+            Explore TVET Solutions
+          </a>
+        </div>
+      </div>
+
+      {/* 2. MAIN FOOTER FLOATING CARD (MATCHING REFERENCE IMAGE) */}
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="bg-white rounded-[32px] sm:rounded-[40px] border border-slate-200/80 shadow-[0_4px_30px_-5px_rgba(0,0,0,0.03)] p-8 sm:p-12 lg:p-16">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* LEFT COLUMN: BRAND & CAPSULE NEWSLETTER SIGNUP */}
+            <div className="lg:col-span-4 space-y-6">
+              
+              {/* BRAND LOGO */}
+              <Link href="#home" className="inline-flex items-center space-x-2.5 group">
+                <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-white flex-shrink-0">
+                  <Image
+                    src="/pics/hi.png"
+                    alt="S&D TVET Consult Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-xl font-bold tracking-tight text-slate-950 group-hover:text-[#00509d] transition-colors">
+                  S&amp;D TVET Consult
+                </span>
+              </Link>
+
+              {/* NEWSLETTER HEADING */}
+              <div className="pt-2">
+                <h4 className="text-sm font-bold text-slate-900">
+                  Sign up to receive TVET updates.
+                </h4>
+              </div>
+
+              {/* CAPSULE INPUT WITH EMBEDDED SUBMIT BUTTON */}
               {subscribed ? (
-                <div className="p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-sm font-semibold flex items-center space-x-3 animate-in fade-in zoom-in duration-300">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                  <span>Thank you! You are subscribed to TVET Regulatory Alerts.</span>
+                <div className="flex items-center space-x-2 p-3 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-800 max-w-sm">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>Thank you! You are subscribed to TVET alerts.</span>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-center gap-3">
-                  <div className="relative w-full">
-                    <Mail className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
+                <form onSubmit={handleSubscribe} className="max-w-sm">
+                  <div className="relative flex items-center bg-slate-100/90 border border-slate-200/80 rounded-full p-1.5 focus-within:border-slate-400 focus-within:ring-2 focus-within:ring-slate-900/5 transition-all">
                     <input
                       type="email"
                       required
-                      placeholder="Enter administrator email..."
-                      value={newsletterEmail}
-                      onChange={(e) => setNewsletterEmail(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-950/80 border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 transition-all shadow-inner"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-transparent pl-4 pr-2 py-1.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none"
                     />
+                    <button
+                      type="submit"
+                      className="flex-shrink-0 rounded-full bg-slate-950 hover:bg-slate-800 text-white px-5 py-2 text-xs font-bold transition-colors shadow-xs"
+                    >
+                      Submit
+                    </button>
                   </div>
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#00509d] to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-900/30 transition-all duration-300 flex items-center justify-center space-x-2 flex-shrink-0 group/btn"
-                  >
-                    <span>Subscribe</span>
-                    <Send className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
                 </form>
               )}
-              <div className="flex items-center space-x-2 text-[11px] text-slate-500 mt-2.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Zero spam • Official Ghana TVET Gazette notices only</span>
+
+              {/* CONSENT DISCLAIMER */}
+              <p className="text-[11px] text-slate-400 leading-relaxed max-w-xs">
+                By subscribing you agree with our{" "}
+                <a href="#contact" className="underline hover:text-slate-600">
+                  Privacy Policy
+                </a>{" "}
+                and provide consent to receive updates from our team.
+              </p>
+            </div>
+
+            {/* RIGHT COLUMNS: 5-COLUMN LINK DIRECTORY */}
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+              
+              {/* COLUMN 1: SERVICES */}
+              <div className="space-y-3.5">
+                <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Services
+                </h5>
+                <ul className="space-y-2.5 text-xs text-slate-500">
+                  <li><a href="#services" className="hover:text-slate-900 transition-colors">CTVET Accreditation</a></li>
+                  <li><a href="#services" className="hover:text-slate-900 transition-colors">CBT Training</a></li>
+                  <li><a href="#services" className="hover:text-slate-900 transition-colors">Policy Formulation</a></li>
+                  <li><a href="#services" className="hover:text-slate-900 transition-colors">Facility Audits</a></li>
+                  <li><a href="#services" className="hover:text-slate-900 transition-colors">Facilitator Hiring</a></li>
+                </ul>
               </div>
+
+              {/* COLUMN 2: SOLUTIONS */}
+              <div className="space-y-3.5">
+                <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Solutions
+                </h5>
+                <ul className="space-y-2.5 text-xs text-slate-500">
+                  <li><a href="#portfolio" className="hover:text-slate-900 transition-colors">Private TVET Schools</a></li>
+                  <li><a href="#portfolio" className="hover:text-slate-900 transition-colors">Technical Institutes</a></li>
+                  <li><a href="#portfolio" className="hover:text-slate-900 transition-colors">Vocational Centers</a></li>
+                  <li><a href="#portfolio" className="hover:text-slate-900 transition-colors">GTVP Grant Projects</a></li>
+                  <li><a href="#accreditation" className="hover:text-slate-900 transition-colors">Institutional Setup</a></li>
+                </ul>
+              </div>
+
+              {/* COLUMN 3: ABOUT */}
+              <div className="space-y-3.5">
+                <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  About
+                </h5>
+                <ul className="space-y-2.5 text-xs text-slate-500">
+                  <li><a href="#about" className="hover:text-slate-900 transition-colors">Our Story &amp; Mission</a></li>
+                  <li><a href="#about" className="hover:text-slate-900 transition-colors">Leadership Team</a></li>
+                  <li><a href="#portfolio" className="hover:text-slate-900 transition-colors">Accredited Schools</a></li>
+                  <li><a href="#gallery" className="hover:text-slate-900 transition-colors">Field Gallery</a></li>
+                  <li><a href="#testimonials" className="hover:text-slate-900 transition-colors">Client References</a></li>
+                </ul>
+              </div>
+
+              {/* COLUMN 4: SUPPORT */}
+              <div className="space-y-3.5">
+                <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Support
+                </h5>
+                <ul className="space-y-2.5 text-xs text-slate-500">
+                  <li><a href="#contact" className="hover:text-slate-900 transition-colors">Accreditation FAQ</a></li>
+                  <li><a href="#contact" className="hover:text-slate-900 transition-colors">Lapaz Office</a></li>
+                  <li><a href="tel:0503347934" className="hover:text-slate-900 transition-colors">Phone: 0503347934</a></li>
+                  <li><a href="tel:0549647768" className="hover:text-slate-900 transition-colors">Phone: 0549647768</a></li>
+                  <li><a href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`} className="hover:text-slate-900 transition-colors">WhatsApp Desk</a></li>
+                </ul>
+              </div>
+
+              {/* COLUMN 5: LEGAL & REGULATORY */}
+              <div className="space-y-3.5">
+                <h5 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Regulatory
+                </h5>
+                <ul className="space-y-2.5 text-xs text-slate-500">
+                  <li><a href="#contact" className="hover:text-slate-900 transition-colors">CTVET Standards</a></li>
+                  <li><a href="#contact" className="hover:text-slate-900 transition-colors">Terms of Service</a></li>
+                  <li><a href="#contact" className="hover:text-slate-900 transition-colors">Privacy Policy</a></li>
+                  <li><a href="#about" className="hover:text-slate-900 transition-colors">Act 992 Compliance</a></li>
+                  <li><a href="#about" className="hover:text-slate-900 transition-colors">Ghana TVET Policy</a></li>
+                </ul>
+              </div>
+
             </div>
 
           </div>
-        </div>
 
-        {/* =========================================================================
-            MAIN MULTI-COLUMN ARCHITECTURE
-        ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-slate-800/80">
-          
-          {/* COLUMN 1: CORPORATE IDENTITY & STATUS (COL-SPAN-4) */}
-          <div className="lg:col-span-4 space-y-6">
-            
-            {/* BRAND LOGO */}
-            <Link href="#home" className="flex items-center space-x-3.5 group">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-white p-1.5 flex-shrink-0 shadow-lg shadow-blue-950/40 border border-white/20 group-hover:scale-105 transition-transform duration-300">
-                <Image
-                  src="/pics/hi.png"
-                  alt="S&D TVET Consult Logo"
-                  fill
-                  className="object-contain p-0.5"
-                />
-              </div>
-              <div>
-                <span className="text-xl font-black text-white tracking-tight group-hover:text-amber-400 transition-colors">
-                  S&amp;D TVET
-                </span>
-                <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest">
-                  Consult Limited
-                </span>
-              </div>
-            </Link>
-
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Empowering Ghanaian technical institutes, proprietors, and instructors to achieve sustainable CTVET accreditation, robust governance, and industry-grade Competency-Based Training (CBT).
+          {/* 3. SUB-FOOTER BOTTOM BAR (MATCHING REFERENCE IMAGE) */}
+          <div className="mt-14 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+            <p className="text-center sm:text-left">
+              &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved. &bull; Registered in Ghana under the Companies Act (Act 992).
             </p>
 
-            {/* LIVE ADVISORY DESK STATUS PILL */}
-            <div className="inline-flex items-center space-x-2.5 px-3.5 py-2 rounded-2xl bg-slate-900/90 border border-emerald-500/30 text-xs shadow-inner">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-              </span>
-              <span className="text-slate-200 font-semibold">
-                Advisory Desk Active • 2026/2027 Cycle
-              </span>
-            </div>
-
-            {/* CORPORATE REGISTRATION SEAL */}
-            <div className="flex items-center space-x-3 text-xs text-slate-400 pt-1">
-              <Building className="w-4 h-4 text-amber-400 flex-shrink-0" />
-              <span>Incorporated Under the Companies Act, 2019 (Act 992)</span>
-            </div>
-
-            {/* DIRECT ACTION BUTTONS (WHATSAPP & HOTLINE) */}
-            <div className="flex flex-wrap gap-2.5 pt-2">
-              <a
-                href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}?text=Hello%20S%26D%20TVET%20Consult%2C%20I%20would%20like%20to%20consult%20with%20a%20director.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-300 hover:text-white border border-emerald-600/30 hover:border-emerald-500 text-xs font-bold transition-all duration-200"
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-                <span>WhatsApp Desk</span>
-              </a>
-
-              <a
-                href={`tel:${SITE_CONFIG.contact.phones[0]}`}
-                className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-blue-950/70 hover:bg-blue-900/90 text-blue-300 hover:text-white border border-blue-600/30 hover:border-blue-500 text-xs font-bold transition-all duration-200"
-              >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span>Call Hotline</span>
-              </a>
-            </div>
-
-          </div>
-
-          {/* COLUMN 2: QUICK NAVIGATION (COL-SPAN-2) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-white flex items-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-[#00509d]" />
-              <span>Navigation</span>
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              {[
-                { label: "Home", href: "#home" },
-                { label: "About Our Firm", href: "#about" },
-                { label: "Executive Leadership", href: "#about" },
-                { label: "Accredited Schools", href: "#portfolio" },
-                { label: "5-Stage Roadmap", href: "#accreditation" },
-                { label: "Field Work Gallery", href: "#gallery" },
-                { label: "Client Testimonials", href: "#testimonials" },
-                { label: "Contact HQ", href: "#contact" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="group flex items-center text-slate-400 hover:text-amber-400 transition-colors py-0.5"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-amber-400 mr-2 transition-colors" />
-                    <span className="group-hover:translate-x-1.5 transition-transform duration-200">
-                      {link.label}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* COLUMN 3: TVET ACCREDITATION SOLUTIONS (COL-SPAN-3) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-white flex items-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-amber-400" />
-              <span>Core Solutions</span>
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              {[
-                "CTVET Institutional Accreditation",
-                "CBT Curriculum & Standard Alignment",
-                "Health, Safety & Governance Policies",
-                "Facility & Workshop Inspection Audit",
-                "Facilitator Recruitment & Screening",
-                "Mock Interview Simulation Coaching",
-                "Ghana TVET Voucher Management (GTVP)",
-                "Institutional Performance Turnaround",
-              ].map((svc) => (
-                <li key={svc}>
-                  <a
-                    href="#services"
-                    className="group flex items-center text-slate-400 hover:text-white transition-colors py-0.5"
-                  >
-                    <ArrowRight className="w-3 h-3 text-[#00509d] group-hover:text-amber-400 mr-2 group-hover:translate-x-1 transition-all" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-200">
-                      {svc}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* COLUMN 4: DIRECT CONTACT HQ & PHYSICAL COORDINATES (COL-SPAN-3) */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-extrabold uppercase tracking-widest text-white flex items-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>Accra Headquarters</span>
-            </h4>
-
-            <div className="space-y-4 text-xs sm:text-sm">
-              
-              {/* ADDRESS */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start space-x-3.5 hover:border-slate-700 transition-colors">
-                <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-bold text-white">Physical Location</div>
-                  <p className="text-slate-400 text-xs mt-0.5 leading-relaxed">
-                    {SITE_CONFIG.contact.address}
-                  </p>
-                </div>
-              </div>
-
-              {/* TELEPHONES */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start space-x-3.5 hover:border-slate-700 transition-colors">
-                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-bold text-white">Direct Phone Lines</div>
-                  <div className="flex flex-col space-y-1 mt-1 text-xs">
-                    {SITE_CONFIG.contact.phones.map((phone, i) => (
-                      <a
-                        key={phone}
-                        href={`tel:${phone}`}
-                        className="text-slate-300 hover:text-amber-400 font-mono font-semibold transition-colors"
-                      >
-                        {SITE_CONFIG.contact.phoneFormatted[i]}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* EMAIL */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start space-x-3.5 hover:border-slate-700 transition-colors">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-bold text-white">Official Correspondence</div>
-                  <a
-                    href={`mailto:${SITE_CONFIG.contact.email}`}
-                    className="text-xs text-blue-300 hover:text-amber-400 transition-colors block mt-0.5 break-all font-mono"
-                  >
-                    {SITE_CONFIG.contact.email}
-                  </a>
-                </div>
-              </div>
-
-              {/* HOURS */}
-              <div className="flex items-center space-x-2 text-xs text-slate-500 pt-1">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span>{SITE_CONFIG.contact.hours}</span>
-              </div>
-
-            </div>
+            <a
+              href="#home"
+              className="inline-flex items-center space-x-1 hover:text-slate-700 transition-colors group"
+            >
+              <span>Advancing TVET Excellence in Ghana</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
           </div>
 
         </div>
-
-        {/* =========================================================================
-            BOTTOM STRIP: COPYRIGHT, GHANA PRIDE, AND BACK TO TOP TRIGGER
-        ========================================================================= */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
-          
-          {/* COPYRIGHT */}
-          <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-3 text-center sm:text-left">
-            <span>
-              &copy; {currentYear} <strong>{SITE_CONFIG.name}</strong>. All rights reserved.
-            </span>
-            <span className="hidden sm:inline text-slate-700">•</span>
-            <span className="text-slate-400">
-              Registration No. CS067572024
-            </span>
-          </div>
-
-          {/* GHANA TVET PRIDE STRIP (RED, GOLD, GREEN ACCENT) */}
-          <div className="flex items-center space-x-3 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-400">
-            <span className="flex space-x-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
-            </span>
-            <span className="font-semibold text-slate-300">
-              Committed to Ghana&apos;s National TVET Agenda
-            </span>
-          </div>
-
-          {/* BACK TO TOP ANIMATED BUTTON */}
-          <button
-            onClick={scrollToTop}
-            className="group flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-[#00509d] text-slate-400 hover:text-white border border-slate-800 hover:border-blue-500/50 transition-all duration-300 shadow-md"
-            aria-label="Back to top"
-          >
-            <span className="font-bold text-xs">Back to Top</span>
-            <div className="w-6 h-6 rounded-lg bg-white/5 group-hover:bg-white/20 flex items-center justify-center group-hover:-translate-y-1 transition-transform duration-200">
-              <ArrowUp className="w-3.5 h-3.5" />
-            </div>
-          </button>
-
-        </div>
-
       </div>
+
     </footer>
   );
 }
