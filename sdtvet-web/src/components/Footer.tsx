@@ -12,80 +12,57 @@ export default function Footer() {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  const alphabet = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M",
-    "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z"
-  ];
-
   const quickLinks = [
     { label: "Home", href: "#home" },
     { label: "About Us", href: "#about" },
-    { label: "Services", href: "#services" },
+    { label: "Our Services", href: "#services" },
     { label: "Accreditation Process", href: "#accreditation" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Partner References", href: "#testimonials" },
+    { label: "Direct Inquiries", href: "#contact" },
   ];
 
   const services = [
-    { label: "CTVET Accreditation", href: "#services" },
-    { label: "Policy Development", href: "#services" },
-    { label: "CBT Training Alignment", href: "#services" },
-    { label: "Facilitator Recruitment", href: "#services" },
-    { label: "Institutional Setup & Audit", href: "#services" },
-    { label: "National Project Management", href: "#services" },
+    { label: "CTVET Accreditation Guidance", href: "#services" },
+    { label: "Policy Development & Governance", href: "#services" },
+    { label: "CBT Training & Alignment", href: "#services" },
+    { label: "Facilitator Recruitment & Placement", href: "#services" },
+    { label: "Institutional Setup & Facility Audit", href: "#services" },
+    { label: "National Project Management (GTVP)", href: "#services" },
   ];
 
   const resources = [
-    { label: "CTVET Accreditation Guide", href: "#blog" },
+    { label: "CTVET Accreditation Standards", href: "#blog" },
     { label: "CBT Competency Framework", href: "#blog" },
     { label: "Facility Inspection Checklist", href: "#accreditation" },
-    { label: "Institutional Policy Templates", href: "#services" },
-    { label: "Facilitator Interview Prep", href: "#services" },
-    { label: "Accreditation FAQ", href: "#about" },
+    { label: "Institutional Governance Manuals", href: "#services" },
+    { label: "Facilitator Panel Interview Prep", href: "#services" },
+    { label: "Accreditation Verification FAQ", href: "#about" },
   ];
 
   const support = [
-    { label: "Knowledge Base", href: "#blog" },
-    { label: "Submit Inquiry", href: "#contact" },
-    { label: "Preliminary Diagnostic Audit", href: "#contact" },
-    { label: "Lapaz Accra Office", href: "#contact" },
+    { label: "Knowledge Base & Articles", href: "#blog" },
+    { label: "Submit Consultation Request", href: "#contact" },
+    { label: "Diagnostic Audit Desk", href: "#contact" },
+    { label: "Accra Corporate Office (Lapaz)", href: "#contact" },
     { label: "Direct Phone Helpdesk", href: "tel:0503347934" },
-    { label: "WhatsApp Support Desk", href: `https://wa.me/${SITE_CONFIG.contact.whatsapp}` },
+    { label: "WhatsApp Senior Consultation", href: `https://wa.me/${SITE_CONFIG.contact.whatsapp}` },
   ];
 
   const otherLinks = [
-    { label: "Our Mission & Mandate", href: "#about" },
-    { label: "Meet Our Leadership", href: "#about" },
-    { label: "Accredited Institutions List", href: "#portfolio" },
-    { label: "GTVP Flagship Sites", href: "#portfolio" },
-    { label: "Field Work Gallery", href: "#gallery" },
-    { label: "Institutional Partnership", href: "#contact" },
+    { label: "Founding Mandate & Mission", href: "#about" },
+    { label: "Meet Our Senior Directors", href: "#about" },
+    { label: "Accredited Institutions Directory", href: "#portfolio" },
+    { label: "GTVP National Voucher Sites", href: "#portfolio" },
+    { label: "Field Documentation Gallery", href: "#gallery" },
+    { label: "Institutional Partnership Desk", href: "#contact" },
   ];
 
   return (
     <footer className="w-full bg-white text-slate-700 border-t border-slate-200/90 pt-16 pb-12">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
-        {/* TOP SECTION: LINKS BY ALPHABETS */}
-        <div className="text-center pb-12 border-b border-slate-200/80">
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 tracking-tight">
-            Links by Alphabets
-          </h3>
-          <div className="flex flex-wrap items-center justify-center gap-x-3.5 gap-y-2 text-xs sm:text-sm font-semibold text-slate-500 max-w-4xl mx-auto">
-            {alphabet.map((letter) => (
-              <a
-                key={letter}
-                href="#portfolio"
-                className="hover:text-[#00509d] transition-colors py-1 px-1.5 hover:bg-slate-50 rounded"
-              >
-                {letter}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* 5-COLUMN CATEGORIZED LINKS GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 py-14">
+        {/* 5-COLUMN CATEGORIZED DIRECTORY GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 pb-14">
           
           {/* COLUMN 1: QUICK LINKS */}
           <div>
@@ -144,7 +121,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 4: SUPPORT */}
+          {/* COLUMN 4: SUPPORT & OFFICE */}
           <div>
             <h4 className="text-sm font-bold text-slate-900 mb-4 tracking-tight">
               Support
