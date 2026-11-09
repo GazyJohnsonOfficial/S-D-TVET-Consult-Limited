@@ -3,47 +3,30 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  ShieldCheck,
-  Award,
-  Users,
-  ChevronRight,
-  Building2,
-  CalendarCheck,
-  Star,
-} from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-gradient-to-b from-slate-50 via-blue-50/40 to-white pt-12 pb-24 lg:pt-20 lg:pb-32 bg-grid-pattern border-b border-slate-200/60">
-      
-      {/* RADIANT AMBIENT GLOWS */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1800px] h-full overflow-hidden pointer-events-none -z-10">
-        <div className="absolute -top-32 right-12 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]" />
-        <div className="absolute top-48 -left-24 w-[500px] h-[500px] bg-amber-400/10 rounded-full blur-[100px]" />
-      </div>
-
+    <section id="home" className="relative w-full overflow-hidden bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24 border-b border-slate-200/60 bg-grid-subtle">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* LEFT: STRATEGIC HEADLINE & PROPOSITION */}
-          <div className="lg:col-span-7 space-y-7 text-left">
+          {/* LEFT: STRATEGIC HEADLINE & VALUE PROPOSITION */}
+          <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* ANNOUNCEMENT PILL */}
-            <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/80 shadow-sm text-xs sm:text-sm font-semibold text-[#003f88]">
-              <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            {/* ANNOUNCEMENT CHIP (RECTANGULAR, NO PILL SHAPE, NEUTRAL BORDER) */}
+            <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-xs sm:text-sm font-semibold text-slate-800">
+              <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
               <span>Official Ghana TVET &amp; CTVET Accreditation Specialists</span>
-              <span className="hidden sm:inline text-slate-300">|</span>
-              <span className="hidden sm:inline text-amber-600 font-bold">2026/2027 Cycle</span>
+              <span className="text-slate-300">|</span>
+              <span className="text-[#00509d] font-bold">2026/2027 Cycle</span>
             </div>
 
-            {/* COMMANDING MAIN HEADLINE */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-black tracking-tight text-slate-900 leading-[1.1]">
+            {/* COMMANDING MAIN HEADLINE (NO PURPLE, CLEAN CORPORATE CONTRAST) */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12]">
               Elevating TVET Standards with{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00509d] via-[#003875] to-[#00296b]">
+              <span className="text-[#00509d]">
                 Accreditation Excellence
               </span>
             </h1>
@@ -53,74 +36,61 @@ export default function Hero() {
               Backed by over 8 years of sector mastery, we partner with private TVET schools, proprietors, and facilitators to secure full <strong>CTVET accreditation</strong>, formulate compliant institutional policies, and deliver gold-standard <strong>Competency-Based Training (CBT)</strong>.
             </p>
 
-            {/* TRUST BULLETS IN COMPACT BADGE CHIPS */}
+            {/* TRUST HIGHLIGHTS (CLEAN NEUTRAL BORDERS, NO EXCESSIVE ICONS) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="flex items-center space-x-2.5 p-3 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm">
-                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-slate-800">
-                  22+ Schools Accredited
-                </div>
+              <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                <div className="text-xl font-bold text-slate-900">22+</div>
+                <div className="text-xs font-semibold text-slate-600 mt-0.5">Institutions Accredited</div>
               </div>
 
-              <div className="flex items-center space-x-2.5 p-3 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0">
-                  <Users className="w-4 h-4" />
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-slate-800">
-                  500+ Instructors Trained
-                </div>
+              <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                <div className="text-xl font-bold text-slate-900">500+</div>
+                <div className="text-xs font-semibold text-slate-600 mt-0.5">Facilitators Coached</div>
               </div>
 
-              <div className="flex items-center space-x-2.5 p-3 rounded-xl bg-white/80 border border-slate-200/90 shadow-sm">
-                <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-slate-800">
-                  GTVP &amp; GJS-P Verified
-                </div>
+              <div className="p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                <div className="text-xl font-bold text-slate-900">6 Projects</div>
+                <div className="text-xs font-semibold text-slate-600 mt-0.5">National GTVP Grants</div>
               </div>
             </div>
 
-            {/* CTA ACTIONS */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-start gap-4">
+            {/* CTA ACTIONS (ROUNDED-LG RECTANGULAR, NO PILL SHAPE) */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-start gap-4">
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-[#00509d] to-[#003875] hover:from-[#003875] hover:to-[#00296b] shadow-xl shadow-blue-900/20 hover:shadow-2xl transition-all duration-300 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-sm sm:text-base font-bold text-white bg-[#00509d] hover:bg-[#003875] shadow-md transition-all group"
               >
                 <span>Book Free Accreditation Audit</span>
-                <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
                 href="#services"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 rounded-xl text-base font-semibold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300/90 shadow-sm hover:border-slate-400 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm transition-all"
               >
                 Explore TVET Solutions
               </a>
             </div>
 
-            {/* DIRECT HOTLINE BADGE */}
-            <div className="pt-2 flex items-center space-x-3 text-xs sm:text-sm text-slate-500">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
-              <span>Direct Consultation Hotlines:</span>
-              <a href="tel:0503347934" className="font-bold text-[#00509d] hover:underline">
+            {/* DIRECT HOTLINE */}
+            <div className="pt-1 flex items-center space-x-2 text-xs sm:text-sm text-slate-500">
+              <span>Direct Inquiries:</span>
+              <a href="tel:0503347934" className="font-bold text-slate-800 hover:text-[#00509d]">
                 050 334 7934
               </a>
               <span className="text-slate-300">/</span>
-              <a href="tel:0549647768" className="font-bold text-[#00509d] hover:underline">
+              <a href="tel:0549647768" className="font-bold text-slate-800 hover:text-[#00509d]">
                 054 964 7768
               </a>
             </div>
           </div>
 
-          {/* RIGHT: DYNAMIC HERO MEDIA WITH LAYERED CREDENTIALS */}
+          {/* RIGHT: HERO MEDIA WITH RECTANGULAR OVERLAY (CLEAN NEUTRAL BORDERS) */}
           <div className="lg:col-span-5 relative w-full">
             <div className="relative mx-auto w-full">
               
               {/* MAIN HERO IMAGE CONTAINER */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 ring-1 ring-slate-200">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-900">
                 <Image
                   src="/pics/44.jpeg"
                   alt="S&D TVET Consult Technical Training in Action"
@@ -130,43 +100,35 @@ export default function Hero() {
                   sizes="(max-width: 1024px) 100vw, 700px"
                 />
                 
-                {/* DARK GRADIENT OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                {/* DARK OVERLAY WITH EDITORIAL CAPTION */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
                 
-                {/* BOTTOM CAPTION */}
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-amber-500 text-slate-950 text-xs font-bold uppercase tracking-wider mb-2">
-                    <Star className="w-3.5 h-3.5 fill-slate-950" />
-                    <span>Real Field Impact</span>
+                  <div className="inline-block px-2.5 py-1 rounded bg-[#00509d] text-white text-[11px] font-bold uppercase tracking-wider mb-2">
+                    Field Impact
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white drop-shadow">
+                  <h3 className="text-lg font-bold text-white">
                     CTVET Facilitator Workshop &amp; Standards Alignment
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-1">
+                  <p className="text-xs text-slate-300 mt-1">
                     Hands-on training, documentation reviews, and verification in Ghana.
                   </p>
                 </div>
               </div>
 
-              {/* FLOATING BADGE 1: ACCREDITED SCHOOLS (TOP LEFT) */}
-              <div className="absolute -top-6 -left-4 sm:-left-8 glass-card rounded-2xl p-4 shadow-xl border border-slate-200/90 flex items-center space-x-3.5">
-                <div className="w-12 h-12 rounded-xl bg-[#00509d] text-white flex items-center justify-center shadow-md">
-                  <Award className="w-6 h-6 text-amber-300" />
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-slate-900 leading-none">22+</div>
-                  <div className="text-xs text-slate-500 font-bold mt-1">Accredited Schools</div>
+              {/* RECTANGULAR STAT BADGE 1 (TOP LEFT) */}
+              <div className="absolute -top-5 -left-4 sm:-left-6 bg-white rounded-xl p-3.5 shadow-md border border-slate-200 flex items-center space-x-3">
+                <div className="text-2xl font-black text-[#00509d] leading-none">22+</div>
+                <div className="text-xs text-slate-600 font-semibold leading-tight">
+                  Accredited<br />Schools
                 </div>
               </div>
 
-              {/* FLOATING BADGE 2: PROVEN YEARS (BOTTOM RIGHT) */}
-              <div className="absolute -bottom-7 -right-4 sm:-right-8 glass-card rounded-2xl p-4 shadow-xl border border-slate-200/90 flex items-center space-x-3.5">
-                <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-md">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-2xl font-black text-slate-900 leading-none">8+ Years</div>
-                  <div className="text-xs text-slate-500 font-bold mt-1">Sector Authority</div>
+              {/* RECTANGULAR STAT BADGE 2 (BOTTOM RIGHT) */}
+              <div className="absolute -bottom-5 -right-4 sm:-right-6 bg-white rounded-xl p-3.5 shadow-md border border-slate-200 flex items-center space-x-3">
+                <div className="text-2xl font-black text-slate-900 leading-none">8+</div>
+                <div className="text-xs text-slate-600 font-semibold leading-tight">
+                  Years Sector<br />Experience
                 </div>
               </div>
 
