@@ -15,6 +15,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
+import SocialLinks from "@/components/SocialIcons";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -170,16 +171,23 @@ export default function ContactSection() {
               </div>
 
               {/* WHATSAPP INSTANT ACTION */}
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 border-t border-slate-100 space-y-4">
                 <a
                   href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}?text=Hello%20S%26D%20TVET%20Consult%2C%20I%20would%20like%20to%20inquire%20about%20CTVET%20Accreditation%20services.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center px-6 py-4 rounded-2xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all duration-200 space-x-2"
+                  className="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-2xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all duration-200 space-x-2"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Chat with Consultants on WhatsApp (Fastest Response)</span>
+                  <span>Chat on WhatsApp (Fastest Response)</span>
                 </a>
+
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Follow Our Channels:
+                  </span>
+                  <SocialLinks />
+                </div>
               </div>
             </div>
           </div>
