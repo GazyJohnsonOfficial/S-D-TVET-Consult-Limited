@@ -12,7 +12,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -34,7 +33,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }

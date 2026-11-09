@@ -7,12 +7,13 @@ import {
   Mail,
   Clock,
   Send,
-  MessageCircle,
   CheckCircle2,
-  Sparkles,
-  ShieldAlert,
   Building,
-  HelpCircle,
+  ShieldCheck,
+  FileText,
+  Calendar,
+  AlertCircle,
+  ArrowRight,
 } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
 
@@ -22,14 +23,33 @@ export default function ContactSection() {
     institution: "",
     email: "",
     phone: "",
+    region: "Greater Accra",
     service: "CTVET Accreditation Guidance",
-    urgency: "Standard Review",
+    urgency: "Standard Review (1-3 Months)",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const consultationPillars = [
+    {
+      title: "Confidential Regulatory Review",
+      description: "Direct evaluation of institutional records against CTVET Act requirements.",
+      icon: <ShieldCheck className="w-5 h-5 text-[#00509d]" />,
+    },
+    {
+      title: "Turnaround in 48 Hours",
+      description: "Our directorship reviews and responds with structured next steps.",
+      icon: <Clock className="w-5 h-5 text-[#00509d]" />,
+    },
+    {
+      title: "Full Checklist Diagnostic",
+      description: "Identification of physical facility, tooling, and curricula deficiencies.",
+      icon: <FileText className="w-5 h-5 text-[#00509d]" />,
+    },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +72,7 @@ export default function ContactSection() {
       setSubmitted(true);
     } catch (err: any) {
       setErrorMessage(
-        err.message || "Failed to send message. Please contact us directly via phone or WhatsApp."
+        err.message || "Failed to submit inquiry. Please reach out via our direct phone lines."
       );
     } finally {
       setLoading(false);
@@ -60,74 +80,101 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-slate-50/70 border-t border-slate-200/80 w-full bg-grid-pattern relative">
+    <section id="contact" className="py-24 lg:py-32 bg-white border-t border-slate-200/80 w-full relative">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
-        {/* SECTION HEADER */}
-        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
-          <div>
-            <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
-              Direct Institutional Advisory &bull; Consultation Desk
+        {/* REDESIGNED EXECUTIVE HEADER */}
+        <div className="w-full mb-16 pb-10 border-b border-slate-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div className="lg:col-span-7">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-2">
+                Executive Consultation &bull; Commission for TVET Advisory
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Accreditation &amp; Institutional Advisory
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Start Your Accreditation Journey
-            </h2>
+            <div className="lg:col-span-5">
+              <p className="text-base text-slate-600 leading-relaxed">
+                Connect directly with our senior directors for statutory guidance on CTVET compliance audits, CBT curriculum accreditation, and institutional governance setup in Ghana.
+              </p>
+            </div>
           </div>
-          <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-            Reach out to our specialist team today for senior advice on CTVET compliance, curriculum alignment, or new school setup.
-          </p>
         </div>
 
+        {/* 3 VALUE CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {consultationPillars.map((pillar, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start space-x-4"
+            >
+              <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-xs">
+                {pillar.icon}
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-slate-900 mb-1">
+                  {pillar.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {pillar.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* MAIN SPLIT: CORPORATE COORDINATES & STRUCTURED CONSULTATION FORM */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
           
-          {/* LEFT: CORPORATE COORDINATES */}
+          {/* LEFT: FORMAL CORPORATE INFORMATION */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200 shadow-sm space-y-6">
+            <div className="bg-slate-50/80 rounded-3xl p-8 sm:p-9 border border-slate-200 space-y-8">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                  Headquarters &amp; Field Coordination
+                <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-1">
+                  Registered Head Office
                 </span>
-                <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                  Accra Corporate Office
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Accra Operational Base
                 </h3>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {/* OFFICE LOCATION */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                       Physical Location
                     </h4>
-                    <p className="text-base font-bold text-slate-800 mt-0.5">
+                    <p className="text-base font-semibold text-slate-900 mt-0.5">
                       {SITE_CONFIG.contact.address}
                     </p>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Accessible right behind Ecobank, Lapaz. Visitor parking available.
+                    <p className="text-xs text-slate-500 mt-1">
+                      Located behind Ecobank, Lapaz. Secured on-premise parking.
                     </p>
                   </div>
                 </div>
 
                 {/* PHONE NUMBERS */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Direct Senior Consultation Hotlines
+                      Direct Advisory Lines
                     </h4>
                     <div className="flex flex-wrap gap-2.5 mt-2">
                       {SITE_CONFIG.contact.phones.map((phone, i) => (
                         <a
                           key={phone}
                           href={`tel:${phone}`}
-                          className="inline-flex items-center text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-blue-50 text-slate-800 hover:text-[#00509d] border border-slate-200 hover:border-blue-200 transition-all"
+                          className="inline-flex items-center text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-slate-800 hover:text-[#00509d] border border-slate-200/90 transition-all shadow-xs"
                         >
-                          <Phone className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
+                          <Phone className="w-3.5 h-3.5 mr-1.5 text-slate-500" />
                           <span>{SITE_CONFIG.contact.phoneFormatted[i]}</span>
                         </a>
                       ))}
@@ -137,16 +184,16 @@ export default function ContactSection() {
 
                 {/* EMAIL */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Official Inquiries
+                      Official Written Correspondence
                     </h4>
                     <a
                       href={`mailto:${SITE_CONFIG.contact.email}`}
-                      className="text-base font-bold text-[#00509d] hover:underline mt-0.5 inline-block"
+                      className="text-base font-semibold text-[#00509d] hover:underline mt-0.5 inline-block"
                     >
                       {SITE_CONFIG.contact.email}
                     </a>
@@ -155,86 +202,79 @@ export default function ContactSection() {
 
                 {/* OPERATING HOURS */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#00509d] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Operating Hours
+                      Consultation Hours
                     </h4>
-                    <p className="text-sm font-semibold text-slate-700 mt-0.5">
+                    <p className="text-sm font-semibold text-slate-800 mt-0.5">
                       {SITE_CONFIG.contact.hours}
+                    </p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      Weekend field inspection audits scheduled upon institutional request.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* WHATSAPP INSTANT ACTION */}
-              <div className="pt-4 border-t border-slate-100">
-                <a
-                  href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}?text=Hello%20S%26D%20TVET%20Consult%2C%20I%20would%20like%20to%20inquire%20about%20CTVET%20Accreditation%20services.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center px-6 py-4 rounded-2xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md transition-all duration-200 space-x-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Chat with Consultants on WhatsApp (Fastest Response)</span>
-                </a>
+              {/* STATUTORY REGISTRATION BADGE */}
+              <div className="pt-6 border-t border-slate-200 flex items-center space-x-3 text-xs text-slate-600">
+                <Building className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                <span>Incorporated under the Companies Act, 2019 (Act 992) &bull; Ghana</span>
               </div>
             </div>
           </div>
 
-          {/* RIGHT: INTERACTIVE CONSULTATION QUESTIONNAIRE */}
+          {/* RIGHT: STRUCTURED ACCREDITATION INQUIRY FORM */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-lg">
-              <div className="mb-6">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#00509d]">
-                  Preliminary Evaluation Request
-                </span>
-                <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                  Send Us an Inquiry
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm">
+              <div className="mb-8 pb-6 border-b border-slate-100">
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Request an Accreditation Review
                 </h3>
-                <p className="text-sm text-slate-500 mt-1">
-                  Our directors Derrick Darko and Stanley Kwame Adu review every inquiry personally within 24 business hours.
+                <p className="text-sm text-slate-600 mt-1">
+                  Complete the institutional profile below. Our directors review each submission to evaluate qualification readiness.
                 </p>
               </div>
 
               {submitted ? (
                 <div className="p-10 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle2 className="w-8 h-8" />
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h4 className="text-2xl font-extrabold text-emerald-950">
-                    Inquiry Received, {formData.name}!
+                  <h4 className="text-2xl font-bold text-emerald-950">
+                    Inquiry Successfully Registered
                   </h4>
                   <p className="text-sm text-emerald-800 max-w-lg mx-auto leading-relaxed">
-                    Thank you for reaching out regarding <strong>{formData.service}</strong>. A specialist from S&amp;D TVET Consult will call or email you back shortly to coordinate next steps.
+                    Thank you, <strong>{formData.name}</strong>. Your consultation request for <strong>{formData.service}</strong> has been logged. Our directors Derrick Darko and Stanley Kwame Adu will review your details and reach out within 24–48 business hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-3 rounded-xl text-xs font-bold text-emerald-900 bg-white border border-emerald-300 hover:bg-emerald-50 shadow-sm"
+                    className="mt-4 px-6 py-2.5 rounded-xl text-xs font-bold text-emerald-900 bg-white border border-emerald-300 hover:bg-emerald-50 shadow-xs transition-colors"
                   >
-                    Submit Another Inquiry
+                    Submit Another Request
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {errorMessage && (
                     <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-xs font-semibold text-red-700 flex items-center space-x-2">
-                      <ShieldAlert className="w-4 h-4 flex-shrink-0" />
+                      <AlertCircle className="w-4 h-4 flex-shrink-0" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Contact Person Name *
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Authorized Contact Person *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Kwame Mensah"
+                        placeholder="e.g. Mr. Kwame Mensah"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
@@ -244,12 +284,13 @@ export default function ContactSection() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Institution / School Name
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Name of TVET Institution *
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Accra Skills Academy"
+                        required
+                        placeholder="e.g. Accra Technical & Vocational Academy"
                         value={formData.institution}
                         onChange={(e) =>
                           setFormData({ ...formData, institution: e.target.value })
@@ -261,13 +302,13 @@ export default function ContactSection() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
                         Official Email Address *
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="yourname@domain.com"
+                        placeholder="principal@institution.edu.gh"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
@@ -277,13 +318,13 @@ export default function ContactSection() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Phone / WhatsApp Number *
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Telephone Number *
                       </label>
                       <input
                         type="tel"
                         required
-                        placeholder="e.g. 050 334 7934"
+                        placeholder="050 334 7934"
                         value={formData.phone}
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
@@ -293,10 +334,33 @@ export default function ContactSection() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Primary Service Required
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Region
+                      </label>
+                      <select
+                        value={formData.region}
+                        onChange={(e) =>
+                          setFormData({ ...formData, region: e.target.value })
+                        }
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#00509d]/30 focus:border-[#00509d] bg-white transition-all"
+                      >
+                        <option>Greater Accra</option>
+                        <option>Ashanti</option>
+                        <option>Bono East / Bono</option>
+                        <option>Central</option>
+                        <option>Western</option>
+                        <option>Savannah / Northern</option>
+                        <option>Eastern</option>
+                        <option>Volta</option>
+                        <option>Other Region</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Core Service Scope
                       </label>
                       <select
                         value={formData.service}
@@ -307,18 +371,17 @@ export default function ContactSection() {
                       >
                         <option>CTVET Accreditation Guidance</option>
                         <option>CBT Training &amp; Unit Standards Alignment</option>
-                        <option>Policy Development &amp; Governance</option>
-                        <option>Institutional Setup &amp; Facility Audit</option>
-                        <option>Facilitator Recruitment &amp; Placement</option>
-                        <option>Interview Coaching &amp; Panel Simulations</option>
-                        <option>GTVP Voucher Program Advisory</option>
-                        <option>Other / General Inquiry</option>
+                        <option>Institutional Policy Formulation</option>
+                        <option>Physical Facility &amp; Tooling Inspection Audit</option>
+                        <option>Facilitator Recruitment &amp; Coaching</option>
+                        <option>GTVP Voucher Grant Management</option>
+                        <option>Turnkey Institutional Setup</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Urgency Timeline
+                      <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                        Review Urgency
                       </label>
                       <select
                         value={formData.urgency}
@@ -327,20 +390,20 @@ export default function ContactSection() {
                         }
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#00509d]/30 focus:border-[#00509d] bg-white transition-all"
                       >
-                        <option>Immediate (Upcoming CTVET Inspection within 30 days)</option>
                         <option>Standard Review (1-3 Months)</option>
-                        <option>New Institution Setup Planning</option>
+                        <option>Urgent Audit (Panel Visit within 30 Days)</option>
+                        <option>Long-Term Planning &amp; Setup</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Specific Requirements / Details
+                    <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                      Institutional Scope &amp; Trade Areas
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Please mention your institution's location, trade areas (e.g. Electricals, Fashion, Cosmetology), and what stage you are currently at..."
+                      placeholder="Briefly state the vocational trade areas (e.g. Cosmetology, Electricals, Fashion, Catering), number of facilitators, and current registration status with CTVET..."
                       value={formData.message}
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
@@ -352,14 +415,14 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 px-8 rounded-xl text-base font-bold text-white bg-gradient-to-r from-[#00509d] to-[#003875] hover:from-[#003875] hover:to-[#00296b] shadow-xl shadow-blue-900/15 transition-all flex items-center justify-center space-x-2"
+                    className="w-full py-4 px-8 rounded-xl text-base font-bold text-white bg-[#00509d] hover:bg-[#003875] shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2"
                   >
                     {loading ? (
-                      <span>Sending inquiry...</span>
+                      <span>Transmitting consultation request...</span>
                     ) : (
                       <>
-                        <Send className="w-4 h-4" />
-                        <span>Submit Consultation Request</span>
+                        <span>Submit Formal Consultation Request</span>
+                        <ArrowRight className="w-4 h-4 ml-2" />
                       </>
                     )}
                   </button>
