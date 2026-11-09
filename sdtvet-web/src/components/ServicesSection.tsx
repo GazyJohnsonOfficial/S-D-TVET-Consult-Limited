@@ -1,10 +1,49 @@
 "use client";
 
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import {
+  Award,
+  FileText,
+  GraduationCap,
+  Users,
+  Building,
+  UserCheck,
+  BarChart,
+  Briefcase,
+  Layers,
+  ArrowRight,
+  CheckCircle,
+  Sparkles,
+} from "lucide-react";
 import { SERVICES, Service } from "@/data/site-data";
 
 export default function ServicesSection() {
+  const getIcon = (iconName: string) => {
+    const props = { className: "w-6 h-6" };
+    switch (iconName) {
+      case "Award":
+        return <Award {...props} />;
+      case "FileText":
+        return <FileText {...props} />;
+      case "GraduationCap":
+        return <GraduationCap {...props} />;
+      case "Users":
+        return <Users {...props} />;
+      case "Building":
+        return <Building {...props} />;
+      case "UserCheck":
+        return <UserCheck {...props} />;
+      case "BarChart":
+        return <BarChart {...props} />;
+      case "Briefcase":
+        return <Briefcase {...props} />;
+      case "Layers":
+        return <Layers {...props} />;
+      default:
+        return <Award {...props} />;
+    }
+  };
+
   const getDeliverables = (id: string) => {
     switch (id) {
       case "ctvet-accreditation":
@@ -31,14 +70,15 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-20 lg:py-24 bg-slate-50 border-t border-slate-200 w-full bg-grid-subtle">
+    <section id="services" className="py-24 lg:py-32 bg-slate-50/70 border-t border-slate-200/80 w-full bg-dot-pattern">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-14 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200">
+        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
           <div>
-            <div className="inline-block px-3 py-1 rounded-md bg-white text-xs font-bold text-slate-800 uppercase tracking-wider mb-3 border border-slate-200 shadow-sm">
-              TVET Consultancy Services
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Full-Spectrum TVET Solutions</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Comprehensive TVET Solutions
@@ -49,57 +89,79 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* SERVICES GRID (CLEAN NEUTRAL BORDERS, NO COLOR BORDERS) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
+        {/* SERVICES GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {SERVICES.map((service: Service, index: number) => {
             const deliverables = getDeliverables(service.id);
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between card-hover"
+                className={`bg-white rounded-3xl p-8 border transition-all duration-300 card-hover-pro flex flex-col justify-between relative overflow-hidden ${
+                  service.featured
+                    ? "border-[#00509d]/40 shadow-lg ring-1 ring-[#00509d]/15"
+                    : "border-slate-200 shadow-sm"
+                }`}
               >
+                {/* TOP ACCENT LINE */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-1.5 ${
+                    service.featured
+                      ? "bg-gradient-to-r from-amber-400 via-[#00509d] to-[#00296b]"
+                      : "bg-slate-200"
+                  }`}
+                />
+
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-slate-400">
-                      0{index + 1}
-                    </span>
-                    {service.featured && (
-                      <span className="text-[11px] font-semibold uppercase tracking-wider bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md border border-slate-200">
-                        Primary Package
+                  <div className="flex items-center justify-between mb-6 pt-2">
+                    <div
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm ${
+                        service.featured
+                          ? "bg-[#00509d] text-white shadow-blue-900/20"
+                          : "bg-blue-50 text-[#00509d] border border-blue-100"
+                      }`}
+                    >
+                      {getIcon(service.icon)}
+                    </div>
+                    {service.featured ? (
+                      <span className="text-[11px] font-bold tracking-wider uppercase bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-200">
+                        High Demand
+                      </span>
+                    ) : (
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        #{String(index + 1).padStart(2, "0")}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
                     {service.description}
                   </p>
 
-                  {/* STRUCTURED DELIVERABLES WITHOUT ICON SPAM */}
-                  <div className="pt-4 border-t border-slate-100 mb-6">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-                      Included Deliverables:
+                  {/* STRUCTURED DELIVERABLES */}
+                  <div className="space-y-2 mb-6 pt-4 border-t border-slate-100">
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      Key Package Deliverables:
                     </div>
-                    <ul className="space-y-1.5 text-xs text-slate-700 list-disc list-inside">
-                      {deliverables.map((item, dIdx) => (
-                        <li key={dIdx} className="leading-snug">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    {deliverables.map((item, dIdx) => (
+                      <div key={dIdx} className="flex items-center space-x-2 text-xs text-slate-700">
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
                   <a
                     href="#contact"
-                    className="text-xs font-bold text-[#00509d] hover:text-[#00296b] flex items-center group"
+                    className="text-xs sm:text-sm font-bold text-[#00509d] hover:text-[#00296b] flex items-center group"
                   >
-                    <span>Request Quotation</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+                    <span>Request Quotation &amp; Scope</span>
+                    <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </div>
@@ -107,25 +169,27 @@ export default function ServicesSection() {
           })}
         </div>
 
-        {/* BOTTOM CALLOUT BANNER (ROUNDED-2XL, NO PILL SHAPE, NO PURPLE GRADIENT) */}
-        <div className="mt-14 bg-slate-900 rounded-2xl p-8 sm:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="inline-block px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 text-[11px] font-bold uppercase tracking-wider border border-slate-700">
-              Preliminary Evaluation
+        {/* BOTTOM CALLOUT BANNER */}
+        <div className="mt-16 bg-gradient-to-r from-[#00296b] via-[#003f88] to-[#00509d] rounded-3xl p-10 lg:p-14 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 relative overflow-hidden">
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="space-y-3 text-center md:text-left relative z-10">
+            <span className="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-300/30">
+              No Obligation Diagnostic
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
               Unsure which TVET package fits your institution?
             </h3>
-            <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
+            <p className="text-base text-blue-100 max-w-2xl leading-relaxed">
               Schedule a preliminary audit with our senior directors to benchmark your documentation, workshop tooling, and curriculum readiness against CTVET criteria.
             </p>
           </div>
           
           <a
             href="#contact"
-            className="px-6 py-3.5 rounded-lg bg-[#00509d] hover:bg-[#003875] text-white font-bold text-sm shadow transition-colors flex-shrink-0"
+            className="px-8 py-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0 relative z-10"
           >
-            Request Preliminary Audit
+            Request Free Audit Session
           </a>
         </div>
 

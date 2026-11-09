@@ -5,9 +5,10 @@
     --brand-primary: #00509d;
     --brand-primary-hover: #003875;
     --brand-dark: #00296b;
-    --brand-navy: #070b14;
+    --brand-navy: #001e4d;
     --brand-accent: #f59e0b;
     --brand-accent-hover: #d97706;
+    --brand-gold: #fbbf24;
     --brand-surface: #f8fafc;
     --brand-card: #ffffff;
     --brand-border: #e2e8f0;
@@ -33,31 +34,59 @@
   }
 }
 
-/* SUBTLE ARCHITECTURAL GRID & TEXTURE */
-.bg-grid-subtle {
-  background-size: 40px 40px;
+/* PREMIUM BACKGROUND TEXTURES & GRID MESH */
+.bg-grid-pattern {
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 80, 157, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 80, 157, 0.04) 1px, transparent 1px);
 }
 
-.bg-dots-subtle {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1.2px, transparent 1.2px);
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(0, 80, 157, 0.08) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
 }
 
-/* FOOTER ANIMATED LIGHT BEAM */
-@keyframes footer-beam {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+/* GLASSMORPHISM & BLUR */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.animate-footer-beam {
-  animation: footer-beam 8s ease-in-out infinite;
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* MARQUEE */
+.glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* PREMIUM HOVER & ELEVATION */
+.card-hover-pro {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-pro:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 80, 157, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 80, 157, 0.4);
+}
+
+/* GLOW HIGHLIGHTS */
+.glow-primary {
+  box-shadow: 0 0 40px -10px rgba(0, 80, 157, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 35px -8px rgba(245, 158, 11, 0.35);
+}
+
+/* CONTINUOUS MARQUEE ANIMATION */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -73,13 +102,42 @@
   animation-play-state: paused;
 }
 
-/* CRISP CARD HOVER (NO COLOR BORDER) */
-.card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+/* DARK FOOTER AMBIENT ANIMATIONS & UTILITIES */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(25px, -20px) scale(1.08);
+  }
 }
 
-.card-hover:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08);
-  border-color: #cbd5e1;
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 14s ease-in-out infinite 3s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.dark-footer-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
