@@ -13,10 +13,9 @@ export default function AboutSection() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4 border border-blue-100">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Built on 8+ Years of Hands-on Authority</span>
-            </div>
+            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
+              Built on 8+ Years of Hands-on Authority
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               About S&amp;D TVET Consult Limited
             </h2>
@@ -78,9 +77,7 @@ export default function AboutSection() {
                   "Continuous post-accreditation support & renewals"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
-                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3.5 h-3.5" />
-                    </span>
+                    <Check className="w-4 h-4 text-[#00509d] flex-shrink-0" />
                     <span className="text-xs sm:text-sm font-semibold text-slate-700">{item}</span>
                   </div>
                 ))}
@@ -165,9 +162,9 @@ export default function AboutSection() {
                   />
                 </div>
                 <div className="text-center sm:text-left flex-grow">
-                  <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-[#00509d] text-xs font-bold uppercase tracking-wider mb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-1">
                     {leader.role}
-                  </div>
+                  </span>
                   <h4 className="text-2xl font-bold text-slate-900">{leader.name}</h4>
                   <p className="text-sm text-slate-600 leading-relaxed mt-2.5">
                     {leader.bio}

@@ -76,10 +76,9 @@ export default function ServicesSection() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Full-Spectrum TVET Solutions</span>
-            </div>
+            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
+              Full-Spectrum TVET Solutions
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Comprehensive TVET Solutions
             </h2>
@@ -123,8 +122,8 @@ export default function ServicesSection() {
                       {getIcon(service.icon)}
                     </div>
                     {service.featured ? (
-                      <span className="text-[11px] font-bold tracking-wider uppercase bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-200">
-                        High Demand
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
+                        Core Flagship
                       </span>
                     ) : (
                       <span className="text-xs font-mono font-bold text-slate-400">
@@ -174,8 +173,8 @@ export default function ServicesSection() {
           <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="space-y-3 text-center md:text-left relative z-10">
-            <span className="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-300/30">
-              No Obligation Diagnostic
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">
+              No-Obligation Preliminary Diagnostic
             </span>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
               Unsure which TVET package fits your institution?

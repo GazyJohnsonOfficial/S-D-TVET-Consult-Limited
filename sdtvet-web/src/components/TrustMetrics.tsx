@@ -52,7 +52,7 @@ export default function TrustMetrics() {
                   <div className="w-12 h-12 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center">
                     {metric.icon}
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
+                  <span className="text-xs font-semibold text-slate-400">
                     {metric.badge}
                   </span>
                 </div>

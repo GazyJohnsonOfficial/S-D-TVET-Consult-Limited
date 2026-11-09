@@ -50,10 +50,9 @@ export default function GallerySection() {
         {/* SECTION HEADER & FILTERS */}
         <div className="w-full mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4 border border-blue-100">
-              <Camera className="w-3.5 h-3.5 text-amber-500" />
-              <span>Documented Field Evidence</span>
-            </div>
+            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
+              Documented Field Evidence
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Our Gallery &amp; Field Work
             </h2>

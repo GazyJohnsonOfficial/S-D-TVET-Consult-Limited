@@ -66,10 +66,9 @@ export default function ContactSection() {
         {/* SECTION HEADER */}
         <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-xs font-bold text-[#00509d] uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Direct Institutional Advisory</span>
-            </div>
+            <span className="text-xs font-bold text-[#00509d] uppercase tracking-wider block mb-2">
+              Direct Institutional Advisory
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Start Your Accreditation Journey
             </h2>

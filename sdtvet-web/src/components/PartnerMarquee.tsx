@@ -48,7 +48,7 @@ export default function PartnerMarquee() {
             <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
               {partner}
             </span>
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-blue-400/80" />
           </div>
         ))}
       </div>
