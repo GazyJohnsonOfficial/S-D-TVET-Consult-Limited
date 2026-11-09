@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Next.js build outputs
+.next/
+**/.next/
+out/
+**/out/
+
+# Large archive files & artifacts
+*.zip
+*.tar.gz
+*.rar
+
+# Environment files
+.env
+.env*.local
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+

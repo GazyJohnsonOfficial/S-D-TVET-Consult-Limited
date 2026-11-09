@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-primary: #00509d;
+    --brand-primary-hover: #003f88;
+    --brand-dark: #00296b;
+    --brand-accent: #f59e0b;
+    --brand-accent-hover: #d97706;
+    --brand-surface: #f8fafc;
+    --brand-card: #ffffff;
+    --brand-border: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-muted: #475569;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--brand-surface);
+    color: var(--text-primary);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom styling & subtle glass reflections */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gradient-hero-badge {
+  background: linear-gradient(135deg, rgba(0, 80, 157, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+  border: 1px solid rgba(0, 80, 157, 0.2);
+}
+
+.card-hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px -10px rgba(0, 80, 157, 0.12);
+  border-color: rgba(0, 80, 157, 0.35);
+}
