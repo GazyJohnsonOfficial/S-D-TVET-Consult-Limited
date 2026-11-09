@@ -12,57 +12,100 @@ export default function Footer() {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
+  const tvetTradeAreas = [
+    { label: "Cosmetology & Beauty Therapy", href: "#portfolio" },
+    { label: "Fashion Design & Garment Making", href: "#portfolio" },
+    { label: "Electrical Engineering Technology", href: "#portfolio" },
+    { label: "Welding & Fabrication", href: "#portfolio" },
+    { label: "Building & Construction", href: "#portfolio" },
+    { label: "Automotive Engineering", href: "#portfolio" },
+    { label: "Catering & Hospitality Management", href: "#portfolio" },
+    { label: "Information & Communication Tech (ICT)", href: "#portfolio" },
+    { label: "Plumbing & Pipefitting", href: "#portfolio" },
+    { label: "Electronics & Security Systems", href: "#portfolio" },
+    { label: "Wood Construction Technology", href: "#portfolio" },
+    { label: "Refrigeration & Air Conditioning", href: "#portfolio" },
+  ];
+
   const quickLinks = [
     { label: "Home", href: "#home" },
     { label: "About Us", href: "#about" },
-    { label: "Our Services", href: "#services" },
+    { label: "Services", href: "#services" },
     { label: "Accreditation Process", href: "#accreditation" },
-    { label: "Partner References", href: "#testimonials" },
-    { label: "Direct Inquiries", href: "#contact" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact Us", href: "#contact" },
   ];
 
   const services = [
-    { label: "CTVET Accreditation Guidance", href: "#services" },
-    { label: "Policy Development & Governance", href: "#services" },
-    { label: "CBT Training & Alignment", href: "#services" },
-    { label: "Facilitator Recruitment & Placement", href: "#services" },
-    { label: "Institutional Setup & Facility Audit", href: "#services" },
-    { label: "National Project Management (GTVP)", href: "#services" },
+    { label: "CTVET Accreditation", href: "#services" },
+    { label: "Policy Development", href: "#services" },
+    { label: "CBT Training Alignment", href: "#services" },
+    { label: "Facilitator Recruitment", href: "#services" },
+    { label: "Institutional Setup & Audit", href: "#services" },
+    { label: "National Project Management", href: "#services" },
   ];
 
   const resources = [
-    { label: "CTVET Accreditation Standards", href: "#blog" },
+    { label: "CTVET Accreditation Guide", href: "#blog" },
     { label: "CBT Competency Framework", href: "#blog" },
     { label: "Facility Inspection Checklist", href: "#accreditation" },
-    { label: "Institutional Governance Manuals", href: "#services" },
-    { label: "Facilitator Panel Interview Prep", href: "#services" },
-    { label: "Accreditation Verification FAQ", href: "#about" },
+    { label: "Institutional Policy Templates", href: "#services" },
+    { label: "Facilitator Interview Prep", href: "#services" },
+    { label: "Accreditation FAQ", href: "#about" },
   ];
 
   const support = [
-    { label: "Knowledge Base & Articles", href: "#blog" },
-    { label: "Submit Consultation Request", href: "#contact" },
-    { label: "Diagnostic Audit Desk", href: "#contact" },
-    { label: "Accra Corporate Office (Lapaz)", href: "#contact" },
+    { label: "Knowledge Base", href: "#blog" },
+    { label: "Submit Inquiry", href: "#contact" },
+    { label: "Preliminary Diagnostic Audit", href: "#contact" },
+    { label: "Lapaz Accra Office", href: "#contact" },
     { label: "Direct Phone Helpdesk", href: "tel:0503347934" },
-    { label: "WhatsApp Senior Consultation", href: `https://wa.me/${SITE_CONFIG.contact.whatsapp}` },
+    { label: "WhatsApp Support Desk", href: `https://wa.me/${SITE_CONFIG.contact.whatsapp}` },
   ];
 
   const otherLinks = [
-    { label: "Founding Mandate & Mission", href: "#about" },
-    { label: "Meet Our Senior Directors", href: "#about" },
-    { label: "Accredited Institutions Directory", href: "#portfolio" },
-    { label: "GTVP National Voucher Sites", href: "#portfolio" },
-    { label: "Field Documentation Gallery", href: "#gallery" },
-    { label: "Institutional Partnership Desk", href: "#contact" },
+    { label: "Our Mission & Mandate", href: "#about" },
+    { label: "Meet Our Leadership", href: "#about" },
+    { label: "Accredited Institutions List", href: "#portfolio" },
+    { label: "GTVP Flagship Sites", href: "#portfolio" },
+    { label: "Field Work Gallery", href: "#gallery" },
+    { label: "Institutional Partnership", href: "#contact" },
   ];
 
   return (
     <footer className="w-full bg-white text-slate-700 border-t border-slate-200/90 pt-16 pb-12">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
-        {/* 5-COLUMN CATEGORIZED DIRECTORY GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 pb-14">
+        {/* TOP SECTION: TVET TRADE AREAS & ACCREDITATION INDEX */}
+        <div className="pb-12 border-b border-slate-200/80">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-1">
+                CTVET Qualification Framework
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Accredited TVET Trade Sectors &amp; Programmes
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-500 max-w-md">
+              Explore national competency standards and curricula we support across Ghana.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {tvetTradeAreas.map((area) => (
+              <a
+                key={area.label}
+                href={area.href}
+                className="text-xs font-medium text-slate-600 bg-slate-100 hover:bg-blue-50 hover:text-[#00509d] px-3.5 py-1.5 rounded-lg border border-slate-200/70 transition-all"
+              >
+                {area.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* 5-COLUMN CATEGORIZED LINKS GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 py-14">
           
           {/* COLUMN 1: QUICK LINKS */}
           <div>
@@ -121,7 +164,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 4: SUPPORT & OFFICE */}
+          {/* COLUMN 4: SUPPORT */}
           <div>
             <h4 className="text-sm font-bold text-slate-900 mb-4 tracking-tight">
               Support
