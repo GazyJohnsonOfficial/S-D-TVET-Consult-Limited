@@ -148,3 +148,13 @@
 .animate-menu-in {
   animation: menu-slide-down 0.2s ease-out;
 }
+
+/* HIDE SCROLLBAR UTILITY */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

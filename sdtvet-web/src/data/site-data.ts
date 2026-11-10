@@ -23,6 +23,12 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  institution: string;
+  location: string;
+  category: "accreditation" | "cbt-training" | "setup";
+  tag: string;
+  rating?: number;
+  featured?: boolean;
   initials: string;
 }
 
@@ -174,39 +180,71 @@ export const GTVP_PROJECTS = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "S&D TVET Consult guided us through every stage of CTVET accreditation with clarity and professionalism. Their process made a complex task manageable for our team.",
+    quote: "S&D TVET Consult guided us through every stage of CTVET accreditation with clarity and professionalism. Their structured process made a demanding regulatory milestone achievable ahead of schedule.",
     name: "Madam Agyeman",
-    role: "Administrator, Private TVET Institute",
+    role: "Administrator",
+    institution: "MECATI Technical Institute",
+    location: "Mamfe Akuapem & Kumasi",
+    category: "accreditation",
+    tag: "CTVET Accreditation",
+    rating: 5,
+    featured: true,
     initials: "MA"
   },
   {
-    quote: "Their facilitator training and policy support significantly improved our internal quality systems. We now operate with stronger structure and confidence.",
+    quote: "Their facilitator training and quality assurance framework transformed our instructional standards. Our instructors now teach and assess with full CBT compliance and confidence.",
     name: "Kofi Owusu",
-    role: "Director, Skills Development Center",
+    role: "Director",
+    institution: "Geagle Training Institute",
+    location: "Nungua, Greater Accra",
+    category: "cbt-training",
+    tag: "Facilitator Training & QA",
+    rating: 5,
     initials: "KO"
   },
   {
-    quote: "The S&D team combined deep regulatory knowledge with practical implementation. Their responsiveness and attention to detail stood out throughout the project.",
+    quote: "The S&D team combined deep CTVET regulatory insight with hands-on voucher program execution. Their responsiveness and attention to audit documentation were outstanding.",
     name: "Esther Nkrumah",
-    role: "Operations Lead, Training Academy",
+    role: "Operations Lead",
+    institution: "MBA Mode Institute",
+    location: "Adenta, Accra",
+    category: "accreditation",
+    tag: "GTVP & Compliance",
+    rating: 5,
     initials: "EN"
   },
   {
-    quote: "From documentation readiness to mock interviews, the consultancy was thorough and professional. Our staff felt prepared and supported at every milestone.",
+    quote: "From documentation audits to mock panel interviews, the consultancy was exhaustive and reassuring. Our management and staff felt thoroughly prepared when the accreditation team arrived.",
     name: "Yaw Mensah",
-    role: "Proprietor, Private TVET College",
+    role: "Proprietor",
+    institution: "Glory Divine Skills Training Center",
+    location: "Gomoa Afransi, Central Region",
+    category: "accreditation",
+    tag: "Audit Readiness & Panels",
+    rating: 5,
+    featured: true,
     initials: "YM"
   },
   {
-    quote: "We engaged S&D for CBT curriculum alignment and quality assurance. The recommendations were practical, and implementation support made the difference for our trainers.",
+    quote: "We engaged S&D for Competency-Based Training (CBT) alignment and curriculum verification. Their practical tools and post-training mentoring delivered immediate improvements in our workshops.",
     name: "Patricia Osei",
-    role: "Head of Training, Technical Institute",
+    role: "Head of Training",
+    institution: "Perphet Plus Beauty College",
+    location: "Michel Camp, Greater Accra",
+    category: "cbt-training",
+    tag: "CBT Curriculum Alignment",
+    rating: 5,
     initials: "PO"
   },
   {
-    quote: "Reliable, knowledgeable and easy to work with. They helped us tighten governance and safety policies while keeping our accreditation timeline on track.",
+    quote: "Reliable, strategic, and deeply knowledgeable about Ghana's TVET regulations. They established robust governance, safety guidelines, and QA manuals that protect our school's future.",
     name: "Samuel Boateng",
-    role: "Quality Assurance Lead, Skills Institute",
+    role: "Quality Assurance Lead",
+    institution: "CareerCraft Vocational Institute",
+    location: "Amasaman, Greater Accra",
+    category: "setup",
+    tag: "Governance & Institutional Setup",
+    rating: 5,
     initials: "SB"
   }
 ];
