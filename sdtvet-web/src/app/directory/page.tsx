@@ -21,15 +21,15 @@ import {
 import { SERVICES, SCHOOLS, BLOG_POSTS, SITE_CONFIG } from "@/data/site-data";
 
 export const metadata: Metadata = {
-  title: "Sitemap & Institutional Index | S&D TVET Consult Limited",
+  title: "Institutional Directory & Sector Index | S&D TVET Consult Limited",
   description:
     "Complete directory of S&D TVET Consult Limited: TVET accreditation frameworks, CBT training programs, accredited institutional partners across Ghana, and regulatory resources.",
   alternates: {
-    canonical: "https://sdtvetconsultlimited.com/sitemap",
+    canonical: "https://sdtvetconsultlimited.com/directory",
   },
 };
 
-export default function SitemapPage() {
+export default function DirectoryPage() {
   const tradeSectors = [
     "Cosmetology & Beauty Therapy",
     "Fashion Design & Garment Making",

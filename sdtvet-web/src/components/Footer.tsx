@@ -47,7 +47,7 @@ export default async function Footer() {
     { label: "Facility Inspection Checklist", href: "#accreditation" },
     { label: "Institutional Policy Templates", href: "#services" },
     { label: "Facilitator Interview Prep", href: "#services" },
-    { label: "Institutional Sitemap", href: "/sitemap" },
+    { label: "Institutional Directory", href: "/directory" },
   ];
 
   const support = [
@@ -312,11 +312,15 @@ export default async function Footer() {
             {/* SEPARATOR */}
             <span className="hidden sm:inline text-slate-300">|</span>
 
-            {/* LEGAL LINKS */}
-            <div className="flex items-center space-x-4 text-xs font-medium text-slate-500">
-              <Link href="/sitemap" className="hover:text-[#00509d] transition-colors font-semibold">
-                Sitemap
+            {/* LEGAL & SITEMAP LINKS */}
+            <div className="flex items-center space-x-3 text-xs font-medium text-slate-500">
+              <Link href="/directory" className="hover:text-[#00509d] transition-colors font-semibold">
+                Directory
               </Link>
+              <span className="text-slate-300">|</span>
+              <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-[#00509d] transition-colors font-semibold">
+                Sitemap
+              </a>
               <span className="text-slate-300">|</span>
               <a href="#contact" className="hover:text-[#00509d] transition-colors">
                 Privacy Policy
