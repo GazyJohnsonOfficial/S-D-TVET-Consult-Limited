@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
   establishedYear: 2024,
   experienceYears: "8+",
   contact: {
-    address: "Lapaz, Behind Ecobank, Greater Accra Region, Ghana",
+    address: "Lapaz, Behind Papaye, Accra, Ghana",
     phones: ["0503347934", "0549647768"],
     phoneFormatted: ["+233 50 334 7934", "+233 54 964 7768"],
     email: "info@sdtvetconsult.com",

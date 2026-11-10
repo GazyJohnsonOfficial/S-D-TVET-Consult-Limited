@@ -153,7 +153,7 @@ export default function ContactSection() {
                       {SITE_CONFIG.contact.address}
                     </p>
                     <p className="text-xs text-slate-500 mt-1">
-                      Located behind Ecobank, Lapaz. Secured on-premise parking.
+                      Located behind Papaye, Lapaz, Accra. Secured on-premise parking.
                     </p>
                   </div>
                 </div>
