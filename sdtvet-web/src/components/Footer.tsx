@@ -47,7 +47,7 @@ export default async function Footer() {
     { label: "Facility Inspection Checklist", href: "#accreditation" },
     { label: "Institutional Policy Templates", href: "#services" },
     { label: "Facilitator Interview Prep", href: "#services" },
-    { label: "Accreditation FAQ", href: "#about" },
+    { label: "Institutional Sitemap", href: "/sitemap" },
   ];
 
   const support = [
@@ -314,6 +314,10 @@ export default async function Footer() {
 
             {/* LEGAL LINKS */}
             <div className="flex items-center space-x-4 text-xs font-medium text-slate-500">
+              <Link href="/sitemap" className="hover:text-[#00509d] transition-colors font-semibold">
+                Sitemap
+              </Link>
+              <span className="text-slate-300">|</span>
               <a href="#contact" className="hover:text-[#00509d] transition-colors">
                 Privacy Policy
               </a>

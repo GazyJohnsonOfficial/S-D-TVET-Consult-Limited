@@ -31,8 +31,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: SITE_CONFIG.name }],
   icons: {
-    icon: "/pics/hi.png",
-    apple: "/pics/hi.png"
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/pics/hi.png", type: "image/png" }
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico"
   },
   openGraph: {
     title: `${SITE_CONFIG.name} - TVET Accreditation Excellence`,
@@ -58,6 +64,45 @@ export const metadata: Metadata = {
   }
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: SITE_CONFIG.name,
+  alternateName: "S&D TVET Consult",
+  url: "https://sdtvetconsultlimited.com",
+  logo: "https://sdtvetconsultlimited.com/pics/hi.png",
+  image: "https://sdtvetconsultlimited.com/pics/44.jpeg",
+  description: SITE_CONFIG.description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Behind Ecobank, Lapaz",
+    addressLocality: "Accra",
+    addressRegion: "Greater Accra Region",
+    addressCountry: "GH",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+233-50-334-7934",
+      contactType: "customer service",
+      areaServed: "GH",
+      availableLanguage: ["English"],
+    },
+  ],
+  founder: [
+    {
+      "@type": "Person",
+      name: "Derrick Darko",
+      jobTitle: "Co-Founder & Director",
+    },
+    {
+      "@type": "Person",
+      name: "Stanley Kwame Adu",
+      jobTitle: "Co-Founder & Director",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -69,6 +114,10 @@ export default function RootLayout({
       className={`${jakarta.variable} ${inter.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900 selection:bg-[#00509d] selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {children}
       </body>
     </html>
