@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sdtvetconsult.com"),
+  metadataBase: new URL("https://sdtvetconsultlimited.com"),
   title: `${SITE_CONFIG.name} | TVET Accreditation & Institutional Excellence in Ghana`,
   description: SITE_CONFIG.description,
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE_CONFIG.name} - TVET Accreditation Excellence`,
     description: SITE_CONFIG.description,
-    url: "https://sdtvetconsult.com",
+    url: "https://sdtvetconsultlimited.com",
     siteName: SITE_CONFIG.name,
     images: [
       {
