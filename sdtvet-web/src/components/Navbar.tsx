@@ -31,12 +31,12 @@ export default function Navbar() {
   return (
     <>
       {/* TOP NOTIFICATION / QUICK CONTACT BAR */}
-      <div className="bg-[#00296b] text-white text-xs py-2.5 px-6 sm:px-10 lg:px-16 border-b border-white/10 hidden md:block w-full">
+      <div className="bg-[#00296b] text-white text-xs py-2.5 px-6 sm:px-10 lg:px-16 border-b border-white/10 hidden xl:block w-full">
         <div className="w-full max-w-[1600px] mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-1.5 text-blue-200">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-              <span>Official Ghana TVET &amp; CTVET Accreditation Experts</span>
+              <span>Ghana TVET &amp; CTVET Accreditation Support</span>
             </span>
             <span className="text-white/40">|</span>
             <span className="text-slate-300">Mon - Fri: 8:00 AM - 5:00 PM</span>
@@ -77,7 +77,7 @@ export default function Navbar() {
                 alt="S&D TVET Consult Logo"
                 fill
                 className="object-contain p-1"
-                priority
+                sizes="44px"
               />
             </div>
             <div className="flex flex-col">
@@ -91,7 +91,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex items-center space-x-7">
+          <nav className="hidden xl:flex items-center space-x-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -104,7 +104,7 @@ export default function Navbar() {
           </nav>
 
           {/* CTA ACTION */}
-          <div className="hidden sm:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-4">
             <a
               href="#contact"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#00509d] hover:bg-[#003875] shadow-sm hover:shadow transition-all duration-200 group"
@@ -115,11 +115,13 @@ export default function Navbar() {
           </div>
 
           {/* MOBILE MENU TOGGLE */}
-          <div className="flex lg:hidden items-center">
+          <div className="flex xl:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-700 hover:text-[#00509d] hover:bg-slate-100 transition-colors"
-              aria-label="Toggle navigation menu"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -132,7 +134,7 @@ export default function Navbar() {
 
         {/* MOBILE SLIDE-DOWN DRAWER */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top duration-200">
+          <div id="mobile-navigation" className="xl:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3 shadow-xl animate-menu-in">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a
@@ -169,4 +171,3 @@ export default function Navbar() {
     </>
   );
 }
-

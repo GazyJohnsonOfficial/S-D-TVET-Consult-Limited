@@ -44,11 +44,11 @@ export default function GallerySection() {
   };
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-white border-t border-slate-100 w-full relative">
+    <section id="gallery" className="py-12 lg:py-16 bg-white border-t border-slate-100 w-full relative">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER & FILTERS */}
-        <div className="w-full mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
+        <div className="w-full mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-100">
           <div>
             <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
               Visual Documentation &bull; CTVET Field Engagements
@@ -67,7 +67,7 @@ export default function GallerySection() {
               <button
                 key={cat.value}
                 onClick={() => setActiveCategory(cat.value)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
                   activeCategory === cat.value
                     ? "bg-[#00509d] text-white shadow-md"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"

@@ -70,9 +70,9 @@ export default function ContactSection() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
+    } catch (err) {
       setErrorMessage(
-        err.message || "Failed to submit inquiry. Please reach out via our direct phone lines."
+        err instanceof Error ? err.message : "Failed to submit inquiry. Please reach out via our direct phone lines."
       );
     } finally {
       setLoading(false);
@@ -80,11 +80,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-white border-t border-slate-200/80 w-full relative">
+    <section id="contact" className="py-12 lg:py-16 bg-white border-t border-slate-200/80 w-full relative">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* REDESIGNED EXECUTIVE HEADER */}
-        <div className="w-full mb-16 pb-10 border-b border-slate-200">
+        <div className="w-full mb-10 pb-6 border-b border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-2">
@@ -103,7 +103,7 @@ export default function ContactSection() {
         </div>
 
         {/* 3 VALUE CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {consultationPillars.map((pillar, idx) => (
             <div
               key={idx}
@@ -129,7 +129,7 @@ export default function ContactSection() {
           
           {/* LEFT: FORMAL CORPORATE INFORMATION */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-slate-50/80 rounded-3xl p-8 sm:p-9 border border-slate-200 space-y-8">
+            <div className="bg-slate-50 rounded-2xl p-8 sm:p-9 border border-slate-200 space-y-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#00509d] block mb-1">
                   Registered Head Office
@@ -229,7 +229,7 @@ export default function ContactSection() {
 
           {/* RIGHT: STRUCTURED ACCREDITATION INQUIRY FORM */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm">
+            <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm">
               <div className="mb-8 pb-6 border-b border-slate-100">
                 <h3 className="text-2xl font-bold text-slate-900">
                   Request an Accreditation Review
@@ -240,7 +240,7 @@ export default function ContactSection() {
               </div>
 
               {submitted ? (
-                <div className="p-10 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
+                <div className="p-10 rounded-2xl bg-emerald-50 border border-slate-200 text-center space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
@@ -248,11 +248,11 @@ export default function ContactSection() {
                     Inquiry Successfully Registered
                   </h4>
                   <p className="text-sm text-emerald-800 max-w-lg mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.name}</strong>. Your consultation request for <strong>{formData.service}</strong> has been logged. Our directors Derrick Darko and Stanley Kwame Adu will review your details and reach out within 24–48 business hours.
+                    Thank you, <strong>{formData.name}</strong>. Your consultation request for <strong>{formData.service}</strong> has been logged. Our directors Derrick Darko and Stanley Kwame Adu will review your details and reach out within 24 to 48 business hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-2.5 rounded-xl text-xs font-bold text-emerald-900 bg-white border border-emerald-300 hover:bg-emerald-50 shadow-xs transition-colors"
+                    className="mt-4 px-6 py-2.5 rounded-lg text-xs font-bold text-emerald-900 bg-white border border-slate-200 hover:bg-slate-50 shadow-xs transition-colors"
                   >
                     Submit Another Request
                   </button>

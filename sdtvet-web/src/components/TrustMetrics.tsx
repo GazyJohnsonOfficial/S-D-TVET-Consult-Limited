@@ -1,78 +1,56 @@
-"use client";
-
 import React from "react";
-import { Building2, Users, CalendarCheck, Award, ArrowUpRight } from "lucide-react";
+import { Building2, Users, CalendarCheck, Award } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-data";
 
+const metricIcons: Record<string, React.ReactNode> = {
+  Building2: <Building2 className="w-5 h-5" />,
+  Users: <Users className="w-5 h-5" />,
+  CalendarCheck: <CalendarCheck className="w-5 h-5" />,
+  Award: <Award className="w-5 h-5" />,
+};
+
 export default function TrustMetrics() {
-  const metrics = [
-    {
-      value: "22+",
-      label: "Accredited Institutions",
-      detail: "Achieved full CTVET certification across Ghana",
-      icon: <Building2 className="w-6 h-6 text-[#00509d]" />,
-      badge: "100% Pass Rate"
-    },
-    {
-      value: "500+",
-      label: "Trained Facilitators",
-      detail: "Instructors coached in Competency-Based Training",
-      icon: <Users className="w-6 h-6 text-[#00509d]" />,
-      badge: "Certified Instructors"
-    },
-    {
-      value: "8+",
-      label: "Years of Sector Experience",
-      detail: "Specialized policy, audit, & institutional setup",
-      icon: <CalendarCheck className="w-6 h-6 text-[#00509d]" />,
-      badge: "Founding Authority"
-    },
-    {
-      value: "6",
-      label: "GTVP Flagship Projects",
-      detail: "Managed Ghana TVET Voucher training grants",
-      icon: <Award className="w-6 h-6 text-[#00509d]" />,
-      badge: "National Impact"
-    }
-  ];
+  const metrics = SITE_CONFIG.metrics;
 
   return (
-    <section className="relative -mt-10 z-20 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
-      <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-200/90 p-6 sm:p-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+    <section className="relative w-full bg-[#001e4d] overflow-hidden">
+      {/* SUBTLE BACKGROUND GLOW */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 left-1/4 w-[500px] h-[300px] bg-[#00509d]/25 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 right-1/4 w-[400px] h-[250px] bg-amber-500/10 rounded-full blur-3xl" />
+      </div>
+
+      {/* ACCENT RULE */}
+      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-amber-400/70 to-transparent" />
+
+      <div className="relative w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-12 lg:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`flex flex-col justify-between p-4 ${
-                index > 0 ? "pt-6 sm:pt-4 sm:pl-8" : ""
+              className={`flex items-start space-x-5 lg:px-8 first:lg:pl-0 last:lg:pr-0 ${
+                index > 0 ? "lg:border-l lg:border-white/10" : ""
               }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center">
-                    {metric.icon}
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
-                    {metric.badge}
+              {/* ICON CHIP */}
+              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/15 text-amber-300 flex items-center justify-center flex-shrink-0 backdrop-blur-sm">
+                {metricIcons[metric.icon] ?? <Award className="w-5 h-5" />}
+              </div>
+
+              <div className="min-w-0">
+                <div className="flex items-baseline space-x-1">
+                  <span className="text-4xl sm:text-[2.75rem] font-black text-white tracking-tight leading-none">
+                    {metric.value}
                   </span>
                 </div>
 
-                <div className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
-                  {metric.value}
-                </div>
-
-                <div className="text-base font-bold text-slate-900 mt-2">
+                <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-amber-300/90 mt-2.5">
                   {metric.label}
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
-                  {metric.detail}
+                <p className="text-xs sm:text-sm text-slate-300/80 mt-1.5 leading-relaxed">
+                  {metric.description}
                 </p>
-              </div>
-
-              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#00509d]">
-                <span>Verified Metric</span>
-                <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-slate-400" />
               </div>
             </div>
           ))}

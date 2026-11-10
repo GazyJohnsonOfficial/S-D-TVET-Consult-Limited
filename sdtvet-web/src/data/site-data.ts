@@ -24,7 +24,6 @@ export interface Testimonial {
   name: string;
   role: string;
   initials: string;
-  rating: number;
 }
 
 export interface GalleryItem {
@@ -58,10 +57,10 @@ export const SITE_CONFIG = {
     hours: "Monday - Friday: 8:00 AM - 5:00 PM"
   },
   metrics: [
-    { label: "Accredited Institutions", value: "22+", description: "Achieved full CTVET accreditation" },
-    { label: "Trained Facilitators", value: "500+", description: "Empowered across Ghana" },
-    { label: "Years of Sector Experience", value: "8+", description: "Dedicated technical leadership" },
-    { label: "GTVP Flagship Projects", value: "6", description: "Successfully managed nationwide" }
+    { label: "Accredited Institutions", value: "22+", description: "Achieved full CTVET accreditation", icon: "Building2" },
+    { label: "Trained Facilitators", value: "500+", description: "Empowered across Ghana", icon: "Users" },
+    { label: "Years of Sector Experience", value: "8+", description: "Dedicated technical leadership", icon: "CalendarCheck" },
+    { label: "GTVP Flagship Projects", value: "6", description: "Successfully managed nationwide", icon: "Award" }
   ]
 };
 
@@ -178,43 +177,37 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "S&D TVET Consult guided us through every stage of CTVET accreditation with clarity and professionalism. Their process made a complex task manageable for our team.",
     name: "Madam Agyeman",
     role: "Administrator, Private TVET Institute",
-    initials: "MA",
-    rating: 5
+    initials: "MA"
   },
   {
     quote: "Their facilitator training and policy support significantly improved our internal quality systems. We now operate with stronger structure and confidence.",
     name: "Kofi Owusu",
     role: "Director, Skills Development Center",
-    initials: "KO",
-    rating: 5
+    initials: "KO"
   },
   {
     quote: "The S&D team combined deep regulatory knowledge with practical implementation. Their responsiveness and attention to detail stood out throughout the project.",
     name: "Esther Nkrumah",
     role: "Operations Lead, Training Academy",
-    initials: "EN",
-    rating: 5
+    initials: "EN"
   },
   {
     quote: "From documentation readiness to mock interviews, the consultancy was thorough and professional. Our staff felt prepared and supported at every milestone.",
     name: "Yaw Mensah",
     role: "Proprietor, Private TVET College",
-    initials: "YM",
-    rating: 5
+    initials: "YM"
   },
   {
     quote: "We engaged S&D for CBT curriculum alignment and quality assurance. The recommendations were practical, and implementation support made the difference for our trainers.",
     name: "Patricia Osei",
     role: "Head of Training, Technical Institute",
-    initials: "PO",
-    rating: 5
+    initials: "PO"
   },
   {
     quote: "Reliable, knowledgeable and easy to work with. They helped us tighten governance and safety policies while keeping our accreditation timeline on track.",
     name: "Samuel Boateng",
     role: "Quality Assurance Lead, Skills Institute",
-    initials: "SB",
-    rating: 5
+    initials: "SB"
   }
 ];
 
@@ -298,4 +291,3 @@ export const BLOG_POSTS: BlogPost[] = [
     image: "/pics/WhatsApp Image 2026-04-29 at 10.46.42 PM.jpeg"
   }
 ];
-

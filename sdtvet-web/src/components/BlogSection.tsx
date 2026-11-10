@@ -5,11 +5,11 @@ import { BLOG_POSTS, BlogPost } from "@/data/site-data";
 
 export default function BlogSection() {
   return (
-    <section id="blog" className="py-24 lg:py-32 bg-white border-t border-slate-100 w-full">
+    <section id="blog" className="py-12 lg:py-16 bg-white border-t border-slate-100 w-full">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-100">
+        <div className="w-full mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-100">
           <div>
             <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
               Industry Knowledge &bull; Insights &amp; TVET Governance
@@ -39,7 +39,7 @@ export default function BlogSection() {
                     className="object-cover transition-transform duration-300 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 350px"
                   />
-                  <div className="absolute top-3 left-3 bg-[#00509d] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                  <div className="absolute top-3 left-3 bg-[#00509d] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-sm">
                     {post.category}
                   </div>
                 </div>
@@ -80,4 +80,3 @@ export default function BlogSection() {
     </section>
   );
 }
-

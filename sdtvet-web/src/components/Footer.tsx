@@ -1,16 +1,12 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { connection } from "next/server";
 import Image from "next/image";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/data/site-data";
 
-export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2026);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+export default async function Footer() {
+  await connection();
+  const currentYear = new Date().getFullYear();
 
   const tvetTradeAreas = [
     { label: "Cosmetology & Beauty Therapy", href: "#portfolio" },
@@ -73,7 +69,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-white text-slate-700 border-t border-slate-200/90 pt-16 pb-12">
+    <footer className="w-full bg-white text-slate-700 border-t border-slate-200/90 py-12 lg:py-16">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* TOP SECTION: TVET TRADE AREAS & ACCREDITATION INDEX */}
@@ -215,6 +211,7 @@ export default function Footer() {
                 alt="S&D TVET Consult Limited"
                 fill
                 className="object-contain"
+                sizes="32px"
               />
             </div>
             <div className="flex items-center space-x-1.5">

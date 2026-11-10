@@ -1,7 +1,6 @@
-"use client";
-
 import React from "react";
 import { CheckCircle2, Building, ShieldCheck } from "lucide-react";
+import { SITE_CONFIG } from "@/data/site-data";
 
 export default function PartnerMarquee() {
   const partners = [
@@ -31,7 +30,7 @@ export default function PartnerMarquee() {
       <div className="w-full max-w-[1600px] mx-auto px-6 mb-3 flex items-center justify-between">
         <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-amber-400">
           <ShieldCheck className="w-4 h-4 text-amber-400" />
-          <span>Trusted by 22+ TVET Institutions Across Ghana</span>
+          <span>Trusted by {SITE_CONFIG.metrics[0].value} TVET Institutions Across Ghana</span>
         </div>
         <span className="text-[11px] text-slate-400 hidden sm:inline-block">
           Official Accreditation &amp; Implementation Partners
@@ -42,7 +41,7 @@ export default function PartnerMarquee() {
         {marqueeItems.map((partner, idx) => (
           <div
             key={idx}
-            className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition-colors flex-shrink-0"
+            className="flex items-center space-x-2.5 px-4 py-2 rounded-lg bg-white/5 border border-white/10 transition-colors flex-shrink-0"
           >
             <Building className="w-3.5 h-3.5 text-blue-400" />
             <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-200">
@@ -55,4 +54,3 @@ export default function PartnerMarquee() {
     </div>
   );
 }
-

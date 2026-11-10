@@ -46,11 +46,11 @@ export default function SchoolsDirectory() {
   const displayedSchools = filteredSchools.slice(0, visibleCount);
 
   return (
-    <section id="portfolio" className="py-24 lg:py-32 bg-slate-50/70 border-t border-slate-200/80 w-full bg-grid-pattern">
+    <section id="portfolio" className="py-12 lg:py-16 bg-slate-50 border-t border-slate-200/80 w-full">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
+        <div className="w-full mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
           <div>
             <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
               National Footprint &bull; 22+ Accredited TVET Centers
@@ -142,7 +142,7 @@ export default function SchoolsDirectory() {
             {displayedSchools.map((school: School, index: number) => (
               <div
                 key={school.name}
-                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group card-hover-pro"
+                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group card-hover-pro"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
@@ -150,7 +150,7 @@ export default function SchoolsDirectory() {
                       <Building2 className="w-4 h-4" />
                     </div>
                     {school.gtvp && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-200">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-800">
                         GTVP Award
                       </span>
                     )}
@@ -175,7 +175,7 @@ export default function SchoolsDirectory() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300 max-w-lg mx-auto">
+          <div className="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 max-w-lg mx-auto">
             <Building2 className="w-10 h-10 text-slate-300 mx-auto mb-3" />
             <p className="text-base font-bold text-slate-800">No institutions match your search</p>
             <p className="text-xs text-slate-500 mt-1">Try selecting &apos;All Regions&apos; or resetting your search term.</p>
@@ -196,7 +196,7 @@ export default function SchoolsDirectory() {
         )}
 
         {/* GTVP HIGHLIGHT BANNER */}
-        <div className="mt-16 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-md">
+        <div className="mt-10 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-md">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-100">
             <div>
               <div className="inline-flex items-center space-x-2 text-amber-600 text-xs font-bold uppercase tracking-wider mb-1">
@@ -216,7 +216,7 @@ export default function SchoolsDirectory() {
             {GTVP_PROJECTS.map((project: string) => (
               <div
                 key={project}
-                className="flex items-center space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm font-semibold text-slate-800 hover:border-blue-300 transition-colors"
+                className="flex items-center space-x-3.5 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-100 transition-colors"
               >
                 <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 className="w-4 h-4" />

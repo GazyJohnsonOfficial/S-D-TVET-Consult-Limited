@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Award,
@@ -70,11 +68,11 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-slate-50/70 border-t border-slate-200/80 w-full bg-dot-pattern">
+    <section id="services" className="py-12 lg:py-16 bg-slate-50 border-t border-slate-200/80 w-full">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
+        <div className="w-full mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
           <div>
             <div className="text-xs sm:text-sm font-bold text-[#00509d] uppercase tracking-wider mb-2">
               Our Capabilities &bull; Full-Spectrum TVET Solutions
@@ -95,20 +93,14 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.id}
-                className={`bg-white rounded-3xl p-8 border transition-all duration-300 card-hover-pro flex flex-col justify-between relative overflow-hidden ${
+                className={`bg-white rounded-2xl p-7 border border-slate-200 transition-all duration-300 card-hover-pro flex flex-col justify-between relative overflow-hidden ${
                   service.featured
-                    ? "border-[#00509d]/40 shadow-lg ring-1 ring-[#00509d]/15"
-                    : "border-slate-200 shadow-sm"
+                    ? "shadow-md"
+                    : "shadow-sm"
                 }`}
               >
                 {/* TOP ACCENT LINE */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1.5 ${
-                    service.featured
-                      ? "bg-gradient-to-r from-amber-400 via-[#00509d] to-[#00296b]"
-                      : "bg-slate-200"
-                  }`}
-                />
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-slate-200" />
 
                 <div>
                   <div className="flex items-center justify-between mb-6 pt-2">
@@ -116,7 +108,7 @@ export default function ServicesSection() {
                       className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm ${
                         service.featured
                           ? "bg-[#00509d] text-white shadow-blue-900/20"
-                          : "bg-blue-50 text-[#00509d] border border-blue-100"
+                          : "bg-slate-100 text-[#00509d]"
                       }`}
                     >
                       {getIcon(service.icon)}
@@ -169,9 +161,7 @@ export default function ServicesSection() {
         </div>
 
         {/* BOTTOM CALLOUT BANNER */}
-        <div className="mt-16 bg-gradient-to-r from-[#00296b] via-[#003f88] to-[#00509d] rounded-3xl p-10 lg:p-14 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 relative overflow-hidden">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-          
+        <div className="mt-10 bg-[#00296b] rounded-2xl p-8 lg:p-10 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="space-y-3 text-center md:text-left relative z-10">
             <div className="text-xs font-bold uppercase tracking-wider text-amber-300">
               No Obligation Diagnostic
@@ -186,7 +176,7 @@ export default function ServicesSection() {
           
           <a
             href="#contact"
-            className="px-8 py-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-base shadow-lg hover:shadow-xl transition-all duration-200 flex-shrink-0 relative z-10"
+            className="px-8 py-4 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-base shadow-md hover:shadow-lg transition-all duration-200 flex-shrink-0 relative z-10"
           >
             Request Free Audit Session
           </a>

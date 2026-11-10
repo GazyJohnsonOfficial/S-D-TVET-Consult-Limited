@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { CheckCircle2, ClipboardCheck, BookOpen, Wrench, Users, Award, Clock, ArrowRight } from "lucide-react";
 
@@ -48,11 +46,11 @@ export default function AccreditationProcess() {
   ];
 
   return (
-    <section id="accreditation" className="py-24 lg:py-32 bg-white border-t border-slate-100 w-full relative">
+    <section id="accreditation" className="py-12 lg:py-16 bg-white border-t border-slate-100 w-full relative">
       <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* SECTION HEADER */}
-        <div className="w-full mb-16 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-100">
+        <div className="w-full mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-100">
           <div>
             <div className="text-xs sm:text-sm font-bold text-emerald-700 uppercase tracking-wider mb-2">
               Implementation Timeline &bull; Proven 5-Stage Framework
@@ -71,7 +69,7 @@ export default function AccreditationProcess() {
           {steps.map((step, idx) => (
             <div
               key={step.number}
-              className="relative bg-slate-50/80 rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between card-hover-pro group"
+              className="relative bg-slate-50 rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between card-hover-pro group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -120,7 +118,7 @@ export default function AccreditationProcess() {
         </div>
 
         {/* BOTTOM ACCREDITATION BANNER */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div className="mt-10 p-6 sm:p-7 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-base sm:text-lg font-bold">
               Ready to start Phase 1 for your institution?
