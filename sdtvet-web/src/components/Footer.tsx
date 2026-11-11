@@ -54,7 +54,7 @@ export default async function Footer() {
     { label: "Knowledge Base", href: "#blog" },
     { label: "Submit Inquiry", href: "#contact" },
     { label: "Preliminary Diagnostic Audit", href: "#contact" },
-    { label: "Lapaz Accra Office", href: "#contact" },
+    { label: "Accra Office", href: "#contact" },
     { label: "Direct Phone Helpdesk", href: "tel:0503347934" },
     { label: "WhatsApp Support Desk", href: `https://wa.me/${SITE_CONFIG.contact.whatsapp}` },
   ];

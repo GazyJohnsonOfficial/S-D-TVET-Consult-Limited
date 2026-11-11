@@ -153,7 +153,7 @@ export default function ContactSection() {
                       {SITE_CONFIG.contact.address}
                     </p>
                     <p className="text-xs text-slate-500 mt-1">
-                      Located behind Papaye, Lapaz, Accra. Secured on-premise parking.
+                      Headquartered in Accra, serving technical institutions nationwide.
                     </p>
                   </div>
                 </div>

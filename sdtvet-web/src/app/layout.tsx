@@ -75,7 +75,6 @@ const organizationJsonLd = {
   description: SITE_CONFIG.description,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Behind Papaye, Lapaz",
     addressLocality: "Accra",
     addressRegion: "Greater Accra Region",
     addressCountry: "GH",
